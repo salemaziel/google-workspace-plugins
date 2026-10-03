@@ -66,7 +66,7 @@ codex plugin install gws-workflows-core@google-workspace-plugins
 |---|---|---|---|---|
 | [`gog-gmail`](plugins/gog-gmail) | Gmail | `/email-triage`, `/email-draft`, `/email-send`, `/followups` | `inbox-manager` | Email triage, composition with safeguards, draft review, and unanswered thread followup tracking. |
 | [`gog-calendar`](plugins/gog-calendar) | Calendar | `/calendar-agenda`, `/calendar-create`, `/calendar-freebusy`, `/calendar-cancel` | `schedule-coordinator` | Agenda inspection, attendee availability query, conflict-free meeting creation, and event cancellation. |
-| [`gog-drive-docs-sheets`](plugins/gog-drive-docs-sheets) | Drive, Docs, Sheets, Slides | `/drive-search`, `/drive-upload`, `/docs-export`, `/sheets-read` | `document-analyst` | Drive searches, uploads, markdown doc exports, spreadsheet reading, and slide deck generation. |
+| [`gog-drive-docs-sheets`](plugins/gog-drive-docs-sheets) | Drive, Docs, Sheets, Slides | `/drive-search`, `/drive-upload`, `/drive-share`, `/docs-export`, `/docs-create`, `/sheets-read`, `/sheets-write`, `/slides-create` | `document-analyst` | Drive searches, uploads, asset sharing, markdown doc exports/creation, spreadsheet reading/writing, and slide decks. |
 | [`gog-tasks`](plugins/gog-tasks) | Google Tasks | `/tasks-list`, `/tasks-add`, `/tasks-done` | `task-organizer` | Task list synchronization, due date tracking, and task lifecycle management. |
 | [`gog-suite`](plugins/gog-suite) | Complete Suite | `/gog-status`, `/gog-auth` | `suite-orchestrator` | Multi-account management, OAuth2 configuration, and cross-service actions across 15 Google services. |
 
