@@ -1,17 +1,17 @@
 {
   "name": "gws-forms-keep",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Google Workspace Forms and Keep notes operations: survey creation, response collection, and team onboarding workflows via gws CLI.",
-  "skills": "./skills/",
-  "interface": {
-    "displayName": "Google Workspace — Forms & Keep",
-    "shortDescription": "Google Workspace Forms and Keep notes operations: survey creation, response collection, and team onboarding workflows via gws CLI.",
-    "category": "Productivity",
-    "defaultPrompt": [
-      "/create-form Team Feedback Q3",
-      "/get-form 1FAIpQLSc...",
-      "/collect-responses 1FAIpQLSc...",
-      "/keep-note Project Kickoff Notes --text 'Key deliverables and milestones'"
-    ]
-  }
+  "author": {
+    "name": "salemaziel",
+    "email": "mymainemail0501@gmail.com"
+  },
+  "keywords": [
+    "google",
+    "workspace",
+    "claude-code",
+    "codex",
+    "gws-forms-keep"
+  ],
+  "license": "MIT"
 }

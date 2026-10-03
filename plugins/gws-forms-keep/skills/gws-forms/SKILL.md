@@ -1,46 +1,55 @@
 ---
 name: gws-forms
-description: "Read and write Google Forms."
+description: "Google Forms creation, question batchUpdate, and response analytics with gws CLI."
 metadata:
   version: 0.22.5
-  openclaw:
-    category: "productivity"
-    requires:
-      bins:
-        - gws
-    cliHelp: "gws forms --help"
+  category: "productivity"
+  requires:
+    bins:
+      - gws
 ---
 
-# forms (v1)
+# gws-forms — Google Forms CLI Integration
 
-> **PREREQUISITE:** Read `../gws-shared/SKILL.md` for auth, global flags, and security rules. If missing, run `gws generate-skills` to create it.
+Create Google Forms surveys, manage question items with `batchUpdate`, and analyze respondent feedback through the `gws` CLI.
 
-```bash
-gws forms <resource> <method> [flags]
-```
+## Quick Workflow
+1. **Create Shell**: Initialize empty form via `gws forms forms create` with title only.
+2. **Add Questions**: Append questions and choice options using `forms.batchUpdate`.
+3. **Analyze**: Query submissions with `forms.responses.list` and pipe into `form_response_analyzer.py`.
 
-## API Resources
-
-### forms
-
-  - `batchUpdate` — Change the form with a batch of updates.
-  - `create` — Create a new form using the title given in the provided form message in the request. *Important:* Only the form.info.title and form.info.document_title fields are copied to the new form. All other fields including the form description, items and settings are disallowed. To create a new form and add items, you must first call forms.create to create an empty form with a title and (optional) document title, and then call forms.update to add the items.
-  - `get` — Get a form.
-  - `setPublishSettings` — Updates the publish settings of a form. Legacy forms aren't supported because they don't have the `publish_settings` field.
-  - `responses` — Operations on the 'responses' resource
-  - `watches` — Operations on the 'watches' resource
-
-## Discovering Commands
-
-Before calling any API method, inspect it:
+## Core Commands
 
 ```bash
-# Browse resources and methods
-gws forms --help
+# 1. Create a new form container
+gws forms forms create --json '{"info": {"title": "Team Survey", "documentTitle": "Team Survey"}}'
 
-# Inspect a method's required params, types, and defaults
-gws schema forms.<resource>.<method>
+# 2. Add question items via batchUpdate
+gws forms forms batchUpdate \
+  --params '{"formId": "<formId>"}' \
+  --json '{
+    "requests": [{
+      "createItem": {
+        "item": {
+          "title": "Rate the workshop",
+          "questionItem": {
+            "question": {
+              "required": true,
+              "choiceQuestion": {"type": "RADIO", "options": [{"value": "5 - Excellent"}, {"value": "4 - Good"}]}
+            }
+          }
+        },
+        "location": {"index": 0}
+      }
+    }]
+  }'
+
+# 3. Analyze form responses with summary report
+gws forms forms responses list --params '{"formId": "<formId>"}' | ./scripts/form_response_analyzer.py
 ```
 
-Use `gws schema` output to build your `--params` and `--json` flags.
-
+## Progressive Disclosure & References
+- **Form Items Schema**: Read [references/form-items-schema.md](references/form-items-schema.md) for 2-step creation rules and choice/text question structures.
+- **Troubleshooting**: See [references/troubleshooting.md](references/troubleshooting.md) for create payload restrictions and Google Keep enterprise domain access.
+- **Response Analyzer**: Use [scripts/form_response_analyzer.py](scripts/form_response_analyzer.py) to aggregate submission metrics.
+- **Templates**: See [templates/feedback-form-spec.json](templates/feedback-form-spec.json) and [templates/keep-checklist.json](templates/keep-checklist.json).

@@ -14,8 +14,16 @@ claude plugin install gws-forms-keep --marketplace google-workspace-plugins
 codex plugin install gws-forms-keep@google-workspace-plugins
 ```
 
-## Included Components
+## Architecture & Components (v1.1.0)
+Follows the Agent Skills progressive disclosure standard:
 
+- **Skills & Progressive Disclosure**:
+  - `gws-forms` (core Google Forms API operations)
+    - References: `references/form-items-schema.md`, `references/troubleshooting.md`
+    - Scripts: `scripts/form_response_analyzer.py` (executable response breakdown & percentage calculator)
+    - Templates: `templates/feedback-form-spec.json`, `templates/keep-checklist.json`
+  - Notes & Storage: `gws-keep` (Google Keep notes and media)
+  - Recipes: `recipe-create-feedback-form`, `recipe-collect-form-responses`
 - **Commands**:
   - `/create-form` — Provision a new Google Form and retrieve public responder URL.
   - `/get-form` — Inspect form questions, schema, and metadata.
@@ -24,11 +32,6 @@ codex plugin install gws-forms-keep@google-workspace-plugins
   - `/keep-list` — List active Keep notes and task lists.
 - **Agents**:
   - `hr-coordinator` — Autonomous HR operations specialist, survey creator, feedback analyst, and onboarding coordinator.
-- **Skills & Recipes**:
-  - `gws-forms` (core Google Forms API operations)
-  - `gws-keep` (Google Keep notes and media)
-  - `recipe-create-feedback-form` (form creation and Gmail distribution pipeline)
-  - `recipe-collect-form-responses` (response querying and aggregation)
 
 ## License
 MIT

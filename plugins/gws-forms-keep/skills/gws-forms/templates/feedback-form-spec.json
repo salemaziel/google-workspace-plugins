@@ -1,0 +1,23 @@
+{
+  "title": "Quarterly Product Feedback",
+  "documentTitle": "Quarterly Product Feedback",
+  "questions": [
+    {
+      "title": "Overall platform satisfaction",
+      "type": "RADIO",
+      "required": true,
+      "options": ["Excellent", "Good", "Fair", "Poor"]
+    },
+    {
+      "title": "Primary use case for our CLI tools",
+      "type": "CHECKBOX",
+      "required": true,
+      "options": ["Automated CI/CD", "Personal Productivity", "Team Operations", "AI Coding Agents"]
+    },
+    {
+      "title": "Any feature requests or improvements?",
+      "type": "PARAGRAPH",
+      "required": false
+    }
+  ]
+}

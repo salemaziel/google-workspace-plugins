@@ -1,0 +1,13 @@
+{
+  "title": "Weekly Ops Checklist",
+  "body": {
+    "list": {
+      "listItems": [
+        {"text": {"text": "Audit Google Workspace admin security alerts"}, "checked": false},
+        {"text": {"text": "Rotate OAuth staging client secrets"}, "checked": false},
+        {"text": {"text": "Check Drive storage quota across team members"}, "checked": false},
+        {"text": {"text": "Triage open support inbox tickets"}, "checked": false}
+      ]
+    }
+  }
+}
