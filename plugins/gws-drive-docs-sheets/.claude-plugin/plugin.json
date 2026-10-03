@@ -1,6 +1,6 @@
 {
   "name": "gws-drive-docs-sheets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Workspace Drive, Docs, Sheets, and Slides operations: cloud file management, document creation, spreadsheet ETL, and slide deck generation via gws CLI.",
   "author": {
     "name": "salemaziel",

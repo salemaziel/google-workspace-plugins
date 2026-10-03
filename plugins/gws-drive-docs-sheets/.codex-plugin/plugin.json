@@ -1,11 +1,17 @@
 {
   "name": "gws-drive-docs-sheets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Workspace Drive, Docs, Sheets, and Slides operations: cloud file management, document creation, spreadsheet ETL, and slide deck generation via gws CLI.",
   "skills": "./skills/",
   "interface": {
     "displayName": "Google Workspace — Drive, Docs & Sheets",
     "shortDescription": "Google Workspace Drive, Docs, Sheets, and Slides operations: cloud file management, document creation, spreadsheet ETL, and slide deck generation via gws CLI.",
-    "category": "Productivity"
+    "category": "Productivity",
+    "defaultPrompt": [
+      "/search Find recent project documents",
+      "/upload ./report.pdf",
+      "/doc-create Q3 Strategy Brief",
+      "/sheet-read 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms"
+    ]
   }
 }
