@@ -77,7 +77,7 @@ codex plugin install gws-workflows-core@google-workspace-plugins
 | Plugin | Service | Commands | Agents | Description |
 |---|---|---|---|---|
 | [`gws-gmail`](plugins/gws-gmail) | Gmail | `/search`, `/triage`, `/send`, `/reply`, `/forward`, `/vacation`, `/filter` | `customer-support` | Gmail API operations, search, sending with dry-run, draft composition, NDJSON mailbox change streams, and customer support. |
-| [`gws-calendar`](plugins/gws-calendar) | Calendar | `/get-schedule`, `/clear-schedule`, `/find-free-time` | `event-coordinator` | Calendar agenda, Meet conferencing, batch invites, focus blocks, and schedule coordination. |
+| [`gws-calendar`](plugins/gws-calendar) | Calendar | `/get-schedule`, `/insert-event`, `/clear-schedule`, `/find-free-time`, `/focus-time`, `/reschedule`, `/batch-invite` | `event-coordinator` | Calendar agenda, Meet conferencing, batch invites, focus blocks, and schedule coordination. |
 | [`gws-drive-docs-sheets`](plugins/gws-drive-docs-sheets) | Drive, Docs, Sheets, Slides | `/search`, `/upload`, `/sheet-export` | `content-creator`, `researcher` | Cloud storage operations, template instantiation, tabular data manipulation, and slide presentations. |
 | [`gws-tasks`](plugins/gws-tasks) | Google Tasks | `/list-tasks`, `/add-task`, `/review-overdue` | `task-administrator` | Task list inspection, overdue audits, and automated email-to-task conversions. |
 | [`gws-chat-meet`](plugins/gws-chat-meet) | Chat & Meet | `/send-message`, `/create-meeting` | `team-lead` | Space messaging, video room provisioning, incident post-mortems, and team announcements. |
