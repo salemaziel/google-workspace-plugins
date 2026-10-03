@@ -1,0 +1,46 @@
+{
+  "cardsV2": [
+    {
+      "cardId": "incident-notification",
+      "card": {
+        "header": {
+          "title": "🚨 P0 Outage: Primary Service Degradation",
+          "subtitle": "War Room Active"
+        },
+        "sections": [
+          {
+            "header": "Current Assessment",
+            "widgets": [
+              {
+                "decoratedText": {
+                  "topLabel": "Incident Commander",
+                  "text": "salemaziel"
+                }
+              },
+              {
+                "decoratedText": {
+                  "topLabel": "Status",
+                  "text": "Mitigation in progress"
+                }
+              },
+              {
+                "buttonList": {
+                  "buttons": [
+                    {
+                      "text": "Join War Room Meet",
+                      "onClick": {
+                        "openLink": {
+                          "url": "https://meet.google.com"
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

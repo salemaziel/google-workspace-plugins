@@ -14,8 +14,16 @@ claude plugin install gws-chat-meet --marketplace google-workspace-plugins
 codex plugin install gws-chat-meet@google-workspace-plugins
 ```
 
-## Included Components
+## Architecture & Components (v1.1.0)
+Follows the Agent Skills progressive disclosure standard:
 
+- **Skills & Progressive Disclosure**:
+  - `gws-chat` (spaces and card messages)
+    - References: `references/card-formatting.md`, `references/troubleshooting.md`
+    - Scripts: `scripts/chat_card_builder.py` (executable Google Chat Cards v2 payload generator)
+    - Templates: `templates/incident-alert.json`, `templates/standup-summary.md`
+  - Additional Skills: `gws-chat-send`, `gws-meet`, `gws-workflow-file-announce`
+  - Recipes: `recipe-create-meet-space`, `recipe-post-mortem-setup`, `recipe-review-meet-participants`, `recipe-send-team-announcement`
 - **Commands**:
   - `/list-spaces` — Discover accessible Google Chat spaces and rooms.
   - `/send-message` — Dispatch messages and alerts to a Chat space.
@@ -25,11 +33,6 @@ codex plugin install gws-chat-meet@google-workspace-plugins
   - `/review-participants` — Audit conference attendance and participant duration logs.
 - **Agents**:
   - `team-lead` — Autonomous team communications coordinator, meeting facilitator, and incident retrospective leader.
-- **Skills & Recipes**:
-  - `gws-chat`, `gws-chat-send`
-  - `gws-meet`
-  - `gws-workflow-file-announce`
-  - `recipe-create-meet-space`, `recipe-post-mortem-setup`, `recipe-review-meet-participants`, `recipe-send-team-announcement`
 
 ## License
 MIT
