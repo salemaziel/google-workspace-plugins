@@ -14,8 +14,20 @@ claude plugin install gws-drive-docs-sheets --marketplace google-workspace-plugi
 codex plugin install gws-drive-docs-sheets@google-workspace-plugins
 ```
 
-## Included Components
+## Architecture & Components (v1.1.0)
+Follows the Agent Skills progressive disclosure standard:
 
+- **Skills & Progressive Disclosure**:
+  - `gws-drive` (core file & folder operations)
+    - References: `references/batch-update-schemas.md`, `references/troubleshooting.md`
+    - Scripts: `scripts/drive_folder_tree.py` (executable Drive ASCII tree visualizer)
+    - Templates: `templates/project-spec.md`, `templates/slide-deck.md`
+  - Specialized Content Skills: `gws-drive-upload`, `gws-docs`, `gws-docs-write`, `gws-sheets`, `gws-sheets-read`, `gws-sheets-append`, `gws-slides`, `google-workspace-ops`
+  - Productivity Recipes:
+    - Docs: `recipe-create-doc-from-template`, `recipe-draft-email-from-doc`, `recipe-share-doc-and-notify`, `recipe-save-email-to-doc`
+    - Sheets: `recipe-create-expense-tracker`, `recipe-backup-sheet-as-csv`, `recipe-compare-sheet-tabs`, `recipe-copy-sheet-for-new-month`, `recipe-generate-report-from-sheet`, `recipe-log-deal-update`
+    - Slides: `recipe-create-presentation`
+    - Drive: `recipe-create-shared-drive`, `recipe-share-folder-with-team`, `recipe-email-drive-link`, `recipe-organize-drive-folder`, `recipe-find-large-files`, `recipe-bulk-download-folder`, `recipe-watch-drive-changes`
 - **Commands**:
   - `/search` — Search Google Drive files and folders by query or MIME filter.
   - `/upload` — Upload local files to Google Drive with folder target support.
@@ -29,13 +41,6 @@ codex plugin install gws-drive-docs-sheets@google-workspace-plugins
 - **Agents**:
   - `content-creator` — Autonomous document author, presenter, and asset publisher.
   - `researcher` — Reference curator, document synthesizer, and Drive quota optimizer.
-- **Skills & Recipes**:
-  - Core API Skills: `gws-drive`, `gws-drive-upload`, `gws-docs`, `gws-docs-write`, `gws-sheets`, `gws-sheets-read`, `gws-sheets-append`, `gws-slides`, `google-workspace-ops`
-  - Productivity Recipes:
-    - `recipe-create-doc-from-template`, `recipe-draft-email-from-doc`, `recipe-share-doc-and-notify`, `recipe-save-email-to-doc`
-    - `recipe-create-expense-tracker`, `recipe-sheet-export` / `recipe-backup-sheet-as-csv`, `recipe-compare-sheet-tabs`, `recipe-copy-sheet-for-new-month`, `recipe-generate-report-from-sheet`, `recipe-log-deal-update`
-    - `recipe-create-presentation`
-    - `recipe-create-shared-drive`, `recipe-share-folder-with-team`, `recipe-email-drive-link`, `recipe-organize-drive-folder`, `recipe-find-large-files`, `recipe-bulk-download-folder`, `recipe-watch-drive-changes`
 
 ## License
 MIT
