@@ -14,8 +14,16 @@ claude plugin install gws-tasks --marketplace google-workspace-plugins
 codex plugin install gws-tasks@google-workspace-plugins
 ```
 
-## Included Components
+## Architecture & Components (v1.1.0)
+Follows the Agent Skills progressive disclosure standard:
 
+- **Skills & Progressive Disclosure**:
+  - `gws-tasks` (core Google Tasks operations)
+    - References: `references/task-hierarchy.md`, `references/troubleshooting.md`
+    - Scripts: `scripts/tasks_triage.py` (executable overdue task parser & status formatter)
+    - Templates: `templates/task-batch.json`, `templates/overdue-alert.md`
+  - Cross-Service Workflows: `gws-workflow-email-to-task`
+  - Recipes: `recipe-create-task-list`, `recipe-review-overdue-tasks`
 - **Commands**:
   - `/list-tasks` — List tasks with completion status, due date, and tasklist filters.
   - `/add-task` — Insert a new task with due date, notes, and priority classification.
@@ -25,10 +33,6 @@ codex plugin install gws-tasks@google-workspace-plugins
   - `/email-to-task` — Convert an incoming Gmail message into a Google Task.
 - **Agents**:
   - `task-administrator` — Autonomous task organizer, P0–P3 priority administrator, and overdue auditor.
-- **Skills & Recipes**:
-  - `gws-tasks` (core Google Tasks operations)
-  - `gws-workflow-email-to-task` (email-to-task cross-service pipeline)
-  - `recipe-create-task-list`, `recipe-review-overdue-tasks`
 
 ## License
 MIT

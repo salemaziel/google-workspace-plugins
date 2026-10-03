@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Review Q4 Infrastructure Budget",
+    "notes": "Analyze cloud hosting expenditures vs forecasted runway",
+    "due": "2026-10-10T00:00:00.000Z"
+  },
+  {
+    "title": "Renew SSL Certificates for staging domain",
+    "notes": "Verify Let's Encrypt automation on load balancers",
+    "due": "2026-10-12T00:00:00.000Z"
+  }
+]

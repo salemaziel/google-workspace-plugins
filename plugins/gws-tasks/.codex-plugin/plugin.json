@@ -1,17 +1,17 @@
 {
   "name": "gws-tasks",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Google Workspace Tasks operations: task list management, overdue audits, and automated email-to-task conversions via gws CLI.",
-  "skills": "./skills/",
-  "interface": {
-    "displayName": "Google Workspace — Tasks",
-    "shortDescription": "Google Workspace Tasks operations: task list management, overdue audits, and automated email-to-task conversions via gws CLI.",
-    "category": "Productivity",
-    "defaultPrompt": [
-      "/list-tasks",
-      "/add-task Finish quarterly review --due 2026-10-05",
-      "/review-overdue",
-      "/create-tasklist Sprint 42"
-    ]
-  }
+  "author": {
+    "name": "salemaziel",
+    "email": "mymainemail0501@gmail.com"
+  },
+  "keywords": [
+    "google",
+    "workspace",
+    "claude-code",
+    "codex",
+    "gws-tasks"
+  ],
+  "license": "MIT"
 }

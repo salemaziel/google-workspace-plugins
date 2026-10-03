@@ -1,57 +1,52 @@
 ---
 name: gws-tasks
-description: "Google Tasks: Manage task lists and tasks."
+description: "Google Tasks management: task lists, hierarchies, subtask trees, and overdue task triage via gws CLI."
 metadata:
   version: 0.22.5
-  openclaw:
-    category: "productivity"
-    requires:
-      bins:
-        - gws
-    cliHelp: "gws tasks --help"
+  category: "productivity"
+  requires:
+    bins:
+      - gws
 ---
 
-# tasks (v1)
+# gws-tasks — Google Tasks CLI Integration
 
-> **PREREQUISITE:** Read `../gws-shared/SKILL.md` for auth, global flags, and security rules. If missing, run `gws generate-skills` to create it.
+Create, organize, prioritize, and triage Google Tasks and subtasks through the `gws` CLI.
 
-```bash
-gws tasks <resource> <method> [flags]
-```
+## Quick Workflow
+1. **List / Triage**: Inspect active tasks using `@default` list and pipe into `tasks_triage.py`.
+2. **Add / Move**: Insert new tasks or position them into subtask hierarchies via `parent` and `previous`.
+3. **Resolve**: Mark tasks completed or clear soft-archived items.
 
-## API Resources
-
-### tasklists
-
-  - `delete` — Deletes the authenticated user's specified task list. If the list contains assigned tasks, both the assigned tasks and the original tasks in the assignment surface (Docs, Chat Spaces) are deleted.
-  - `get` — Returns the authenticated user's specified task list.
-  - `insert` — Creates a new task list and adds it to the authenticated user's task lists. A user can have up to 2000 lists at a time.
-  - `list` — Returns all the authenticated user's task lists. A user can have up to 2000 lists at a time.
-  - `patch` — Updates the authenticated user's specified task list. This method supports patch semantics.
-  - `update` — Updates the authenticated user's specified task list.
-
-### tasks
-
-  - `clear` — Clears all completed tasks from the specified task list. The affected tasks will be marked as 'hidden' and no longer be returned by default when retrieving all tasks for a task list.
-  - `delete` — Deletes the specified task from the task list. If the task is assigned, both the assigned task and the original task (in Docs, Chat Spaces) are deleted. To delete the assigned task only, navigate to the assignment surface and unassign the task from there.
-  - `get` — Returns the specified task.
-  - `insert` — Creates a new task on the specified task list. Tasks assigned from Docs or Chat Spaces cannot be inserted from Tasks Public API; they can only be created by assigning them from Docs or Chat Spaces. A user can have up to 20,000 non-hidden tasks per list and up to 100,000 tasks in total at a time.
-  - `list` — Returns all tasks in the specified task list. Doesn't return assigned tasks by default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden tasks per list and up to 100,000 tasks in total at a time.
-  - `move` — Moves the specified task to another position in the destination task list. If the destination list is not specified, the task is moved within its current list. This can include putting it as a child task under a new parent and/or move it to a different position among its sibling tasks. A user can have up to 2,000 subtasks per task.
-  - `patch` — Updates the specified task. This method supports patch semantics.
-  - `update` — Updates the specified task.
-
-## Discovering Commands
-
-Before calling any API method, inspect it:
+## Core Commands
 
 ```bash
-# Browse resources and methods
-gws tasks --help
+# Triage open and overdue tasks in primary tasklist
+gws tasks tasks list --params '{"tasklist": "@default"}' | ./scripts/tasks_triage.py
 
-# Inspect a method's required params, types, and defaults
-gws schema tasks.<resource>.<method>
+# Filter only overdue tasks
+gws tasks tasks list --params '{"tasklist": "@default"}' | ./scripts/tasks_triage.py --overdue-only
+
+# Insert a new task with due date (Midnight UTC RFC 3339)
+gws tasks tasks insert \
+  --params '{"tasklist": "@default"}' \
+  --json '{
+    "title": "Review security audit logs",
+    "notes": "Verify external sharing permissions on Drive",
+    "due": "2026-10-15T00:00:00.000Z"
+  }'
+
+# Complete a task
+gws tasks tasks patch \
+  --params '{"tasklist": "@default", "task": "<taskId>"}' \
+  --json '{"status": "completed"}'
+
+# Clear completed tasks from view
+gws tasks tasks clear --params '{"tasklist": "@default"}'
 ```
 
-Use `gws schema` output to build your `--params` and `--json` flags.
-
+## Progressive Disclosure & References
+- **Hierarchy & Subtasks**: Read [references/task-hierarchy.md](references/task-hierarchy.md) for subtask positioning rules and quota limits.
+- **Troubleshooting**: See [references/troubleshooting.md](references/troubleshooting.md) for RFC 3339 due dates and assigned task constraints.
+- **Triage Script**: Use [scripts/tasks_triage.py](scripts/tasks_triage.py) to flag overdue items and format task status tables.
+- **Templates**: See [templates/task-batch.json](templates/task-batch.json) and [templates/overdue-alert.md](templates/overdue-alert.md).
