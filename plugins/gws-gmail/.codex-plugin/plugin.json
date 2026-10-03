@@ -1,0 +1,11 @@
+{
+  "name": "gws-gmail",
+  "version": "1.0.0",
+  "description": "Google Workspace Gmail automation: search, threads, draft composition, labels, NDJSON mailbox change streams, and automated triage via gws CLI.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Google Workspace — Gmail",
+    "shortDescription": "Google Workspace Gmail automation: search, threads, draft composition, labels, NDJSON mailbox change streams, and automated triage via gws CLI.",
+    "category": "Productivity"
+  }
+}

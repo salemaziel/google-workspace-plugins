@@ -1,0 +1,11 @@
+{
+  "name": "gws-people",
+  "version": "1.0.0",
+  "description": "Google Workspace People & Contacts operations: directory search, profile lookups, and contact directory synchronization to spreadsheets via gws CLI.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Google Workspace — Contacts & People",
+    "shortDescription": "Google Workspace People & Contacts operations: directory search, profile lookups, and contact directory synchronization to spreadsheets via gws CLI.",
+    "category": "Productivity"
+  }
+}

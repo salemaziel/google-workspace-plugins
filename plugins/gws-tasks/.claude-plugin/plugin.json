@@ -1,0 +1,17 @@
+{
+  "name": "gws-tasks",
+  "version": "1.0.0",
+  "description": "Google Workspace Tasks operations: task list management, overdue audits, and automated email-to-task conversions via gws CLI.",
+  "author": {
+    "name": "salemaziel",
+    "email": "mymainemail0501@gmail.com"
+  },
+  "keywords": [
+    "google",
+    "workspace",
+    "claude-code",
+    "codex",
+    "gws-tasks"
+  ],
+  "license": "MIT"
+}

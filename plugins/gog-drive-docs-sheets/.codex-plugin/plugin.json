@@ -1,0 +1,11 @@
+{
+  "name": "gog-drive-docs-sheets",
+  "version": "1.0.0",
+  "description": "Google Drive file management, markdown Docs export, Sheets tabular read/write, and Slides creation using the gog CLI.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Google Suite CLI — Drive & Docs",
+    "shortDescription": "Google Drive file management, markdown Docs export, Sheets tabular read/write, and Slides creation using the gog CLI.",
+    "category": "Productivity"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "gog-suite",
+  "version": "1.0.0",
+  "description": "Unified multi-account Google Suite CLI (gog) integration across Gmail, Calendar, Drive, Docs, Sheets, Slides, Chat, Contacts, Tasks, Keep, and Admin.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Google Suite CLI — Full Suite",
+    "shortDescription": "Unified multi-account Google Suite CLI (gog) integration across Gmail, Calendar, Drive, Docs, Sheets, Slides, Chat, Contacts, Tasks, Keep, and Admin.",
+    "category": "Productivity"
+  }
+}

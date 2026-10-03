@@ -1,0 +1,17 @@
+{
+  "name": "gog-gmail",
+  "version": "1.0.0",
+  "description": "Gmail inbox management, message triage, draft preparation, sending with confirmation, and thread followup tracking using the gog CLI.",
+  "author": {
+    "name": "salemaziel",
+    "email": "mymainemail0501@gmail.com"
+  },
+  "keywords": [
+    "google",
+    "workspace",
+    "claude-code",
+    "codex",
+    "gog-gmail"
+  ],
+  "license": "MIT"
+}

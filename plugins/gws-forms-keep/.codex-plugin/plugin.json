@@ -1,0 +1,11 @@
+{
+  "name": "gws-forms-keep",
+  "version": "1.0.0",
+  "description": "Google Workspace Forms and Keep notes operations: survey creation, response collection, and team onboarding workflows via gws CLI.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Google Workspace — Forms & Keep",
+    "shortDescription": "Google Workspace Forms and Keep notes operations: survey creation, response collection, and team onboarding workflows via gws CLI.",
+    "category": "Productivity"
+  }
+}

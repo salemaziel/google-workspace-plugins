@@ -1,0 +1,11 @@
+{
+  "name": "gws-admin-security",
+  "version": "1.0.0",
+  "description": "Google Workspace Admin reports, Classroom courses, Apps Script deployment, Workspace events, and Model Armor safety filters via gws CLI.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Google Workspace — Admin & Security",
+    "shortDescription": "Google Workspace Admin reports, Classroom courses, Apps Script deployment, Workspace events, and Model Armor safety filters via gws CLI.",
+    "category": "Productivity"
+  }
+}

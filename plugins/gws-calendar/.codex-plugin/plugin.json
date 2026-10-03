@@ -1,0 +1,11 @@
+{
+  "name": "gws-calendar",
+  "version": "1.0.0",
+  "description": "Google Workspace Calendar operations: agenda inspection, Meet links, attendee invites, focus blocks, and schedule conflict resolution via gws CLI.",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Google Workspace — Calendar",
+    "shortDescription": "Google Workspace Calendar operations: agenda inspection, Meet links, attendee invites, focus blocks, and schedule conflict resolution via gws CLI.",
+    "category": "Productivity"
+  }
+}

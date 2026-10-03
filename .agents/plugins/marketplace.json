@@ -1,0 +1,176 @@
+{
+  "name": "google-workspace-plugins",
+  "interface": {
+    "displayName": "Google Workspace & G Suite Plugins"
+  },
+  "plugins": [
+    {
+      "name": "gog-gmail",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gog-gmail"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gog-calendar",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gog-calendar"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gog-drive-docs-sheets",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gog-drive-docs-sheets"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gog-tasks",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gog-tasks"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gog-suite",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gog-suite"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "gws-gmail",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-gmail"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gws-calendar",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-calendar"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gws-drive-docs-sheets",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-drive-docs-sheets"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gws-tasks",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-tasks"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gws-chat-meet",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-chat-meet"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gws-people",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-people"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gws-forms-keep",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-forms-keep"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "gws-admin-security",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-admin-security"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "gws-workflows-core",
+      "source": {
+        "source": "local",
+        "path": "./plugins/gws-workflows-core"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
