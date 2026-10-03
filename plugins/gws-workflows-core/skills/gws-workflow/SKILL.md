@@ -1,45 +1,44 @@
 ---
 name: gws-workflow
-description: "Google Workflow: Cross-service productivity workflows."
+description: "Google Workspace cross-service productivity workflows: standup summaries, meeting preparation, and weekly digests via gws CLI."
 metadata:
   version: 0.22.5
-  openclaw:
-    category: "productivity"
-    requires:
-      bins:
-        - gws
-    cliHelp: "gws workflow --help"
+  category: "productivity"
+  requires:
+    bins:
+      - gws
 ---
 
-# workflow (v1)
+# gws-workflow — Cross-Service Productivity Pipelines
 
-> **PREREQUISITE:** Read `../gws-shared/SKILL.md` for auth, global flags, and security rules. If missing, run `gws generate-skills` to create it.
+Orchestrate composite workflows spanning Google Calendar, Gmail, Google Drive, Google Tasks, and Google Chat through the `gws` CLI.
 
-```bash
-gws workflow <resource> <method> [flags]
-```
+## Quick Workflow
+1. **Prepare Meetings**: Execute `+meeting-prep` to fetch attendees, agendas, and linked Drive specs.
+2. **Daily Standup**: Run `+standup-report` to synthesize commitments and open tasks.
+3. **Weekly Synthesis**: Generate executive progress overviews with `+weekly-digest`.
 
-## Helper Commands
-
-| Command | Description |
-|---------|-------------|
-| [`+standup-report`](../gws-workflow-standup-report/SKILL.md) | Today's meetings + open tasks as a standup summary |
-| [`+meeting-prep`](../gws-workflow-meeting-prep/SKILL.md) | Prepare for your next meeting: agenda, attendees, and linked docs |
-| [`+email-to-task`](../gws-workflow-email-to-task/SKILL.md) | Convert a Gmail message into a Google Tasks entry |
-| [`+weekly-digest`](../gws-workflow-weekly-digest/SKILL.md) | Weekly summary: this week's meetings + unread email count |
-| [`+file-announce`](../gws-workflow-file-announce/SKILL.md) | Announce a Drive file in a Chat space |
-
-## Discovering Commands
-
-Before calling any API method, inspect it:
+## Core Commands
 
 ```bash
-# Browse resources and methods
-gws workflow --help
+# Generate today's standup summary (Calendar + Tasks)
+gws workflow +standup-report
 
-# Inspect a method's required params, types, and defaults
-gws schema workflow.<resource>.<method>
+# Prepare briefing for next upcoming meeting
+gws workflow +meeting-prep
+
+# Generate weekly executive digest
+gws workflow +weekly-digest
+
+# Convert email to task
+gws workflow +email-to-task --message-id <msgId>
+
+# Announce Drive file to Chat space
+gws workflow +file-announce --file-id <fileId> --space <spaceId>
 ```
 
-Use `gws schema` output to build your `--params` and `--json` flags.
-
+## Progressive Disclosure & References
+- **Pipeline Architecture**: Read [references/pipeline-patterns.md](references/pipeline-patterns.md) for data flow across cross-service workflows.
+- **Troubleshooting**: See [references/troubleshooting.md](references/troubleshooting.md) for multi-service authentication and error handling.
+- **Doctor & Diagnostic Tools**: Run `../../scripts/gws_doctor.py` to audit environment and token scopes.
+- **Templates**: See `../../templates/standup-report.md`, `../../templates/meeting-prep.md`, and `../../templates/weekly-digest.md`.

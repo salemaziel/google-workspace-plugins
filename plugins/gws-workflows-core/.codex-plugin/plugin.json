@@ -1,18 +1,17 @@
 {
   "name": "gws-workflows-core",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Google Workspace orchestration suite: pre-flight diagnostics, setup guides, recipe runner, cross-service workflows (standup report, meeting prep, weekly digest), and executive management via gws CLI.",
-  "skills": "./skills/",
-  "interface": {
-    "displayName": "Google Workspace — Workflows & Core CLI",
-    "shortDescription": "Google Workspace orchestration suite: pre-flight diagnostics, setup guides, recipe runner, cross-service workflows (standup report, meeting prep, weekly digest), and executive management via gws CLI.",
-    "category": "Productivity",
-    "defaultPrompt": [
-      "/doctor",
-      "/standup",
-      "/meeting-prep",
-      "/recipe list --persona pm",
-      "/weekly-digest"
-    ]
-  }
+  "author": {
+    "name": "salemaziel",
+    "email": "mymainemail0501@gmail.com"
+  },
+  "keywords": [
+    "google",
+    "workspace",
+    "claude-code",
+    "codex",
+    "gws-workflows-core"
+  ],
+  "license": "MIT"
 }
