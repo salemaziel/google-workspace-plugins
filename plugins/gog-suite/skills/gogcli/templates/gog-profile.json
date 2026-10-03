@@ -1,0 +1,20 @@
+{
+  "profile_name": "default",
+  "account_email": "user@example.com",
+  "credentials_path": "~/.config/gog/credentials.json",
+  "default_services": [
+    "gmail",
+    "calendar",
+    "drive",
+    "tasks"
+  ],
+  "sandbox_policy": {
+    "read_only": true,
+    "allowed_commands": [
+      "gmail search",
+      "calendar list",
+      "drive search",
+      "tasks list"
+    ]
+  }
+}

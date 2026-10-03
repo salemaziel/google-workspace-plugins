@@ -1,160 +1,42 @@
 ---
 name: "Google Suite CLI (gogcli)"
-description: "CLI for Gmail, Calendar, Chat, Drive, Docs, Sheets, Slides, Forms, Contacts, Tasks, Keep, and Admin. Use when an agent needs to interact with any Google Workspace service — send emails, manage calendar events, search Drive, read/write spreadsheets, or manage contacts."
+description: "Cross-service CLI orchestrator for Gmail, Calendar, Drive, Docs, Sheets, Slides, Contacts, and Tasks. Use when managing accounts, sandboxing permissions, or synthesizing multi-service briefings."
 ---
 
-# gogcli — Google in your terminal
+# Google Suite CLI (`gogcli`) — Multi-Service Orchestrator
 
-Fast, script-friendly CLI for Gmail, Calendar, Chat, Classroom, Drive, Docs, Slides, Sheets, Forms, Apps Script, Contacts, Tasks, People, Admin, Groups, and Keep.
+Unified interface for orchestrating operations across Google Workspace services using the `gog` CLI.
 
-- **Repo**: https://github.com/steipete/gogcli
-- **Author**: [@steipete](https://github.com/steipete)
+## Quick Workflow
+1. **Health & Connectivity**: Run `./scripts/check_accounts.py` to audit tokens and service reachability.
+2. **Account Switching**: Select the target identity using `export GOG_ACCOUNT=user@company.com`.
+3. **Execution & Sandboxing**: Execute commands across Gmail, Calendar, Drive, Docs, Sheets, and Tasks with optional command allowlists.
 
-## Installation
-
-```bash
-brew install gogcli
-```
-
-Or build from source:
+## Core Multi-Service Commands
 
 ```bash
-git clone https://github.com/steipete/gogcli.git
-cd gogcli && make
+# Verify authentication and connectivity
+./scripts/check_accounts.py
+
+# Switch active account
+export GOG_ACCOUNT="you@company.com"
+
+# Synthesize daily briefing across services
+gog calendar list --days 1 --json
+gog gmail search "is:unread is:important" --max 5 --json
+gog tasks list <tasklistId> --json
+
+# Restrict subagent to safe read-only execution
+export GOG_ALLOWED_COMMANDS="gmail search,calendar list,drive search,tasks list"
 ```
 
-## Authentication
+## Security & Best Practices
+- **JSON Standard**: Always use `--json` for structured agent interoperability.
+- **Account Sandboxing**: Set `GOG_ALLOWED_COMMANDS` in autonomous environments to prevent unintended writes or deletions.
 
-Requires OAuth2 credentials from Google Cloud Console:
-
-```bash
-# Store OAuth client credentials (one-time)
-gog auth credentials ~/Downloads/client_secret_....json
-
-# Authorize an account
-gog auth add you@gmail.com
-
-# Set default account
-export GOG_ACCOUNT=you@gmail.com
-
-# Verify
-gog gmail labels list
-```
-
-For headless/CI environments, use `--manual` or `--remote` auth flows, or pass `--access-token` directly.
-
-## Key Commands
-
-### Gmail
-
-```bash
-gog gmail search "from:boss subject:urgent"
-gog gmail search "is:unread" --max 10 --json
-gog gmail send --to recipient@example.com --subject "Hello" --body "Message body"
-gog gmail send --to recipient@example.com --subject "Report" --attach report.pdf
-gog gmail labels list
-gog gmail drafts list
-```
-
-### Calendar
-
-```bash
-gog calendar list                          # today's events
-gog calendar list --days 7 --json          # next 7 days, JSON output
-gog calendar create --title "Meeting" --start "2025-01-15T10:00:00" --duration 1h
-gog calendar delete <eventId>
-gog calendar freebusy --emails "a@co.com,b@co.com" --days 3
-```
-
-### Drive
-
-```bash
-gog drive list
-gog drive search "quarterly report"
-gog drive upload ./file.pdf
-gog drive download <fileId>
-gog drive share <fileId> --email user@example.com --role writer
-```
-
-### Contacts
-
-```bash
-gog contacts search "John"
-gog contacts create --name "Jane Doe" --email jane@example.com --phone "+1234567890"
-gog contacts update <resourceName> --title "CTO" --company "Acme"
-```
-
-### Sheets
-
-```bash
-gog sheets read <spreadsheetId> --range "Sheet1!A1:D10" --json
-gog sheets write <spreadsheetId> --range "Sheet1!A1" --values '[["Name","Score"],["Alice",95]]'
-gog sheets create --title "New Sheet"
-```
-
-### Tasks
-
-```bash
-gog tasks list
-gog tasks add "Buy groceries" --due "2025-01-20"
-gog tasks done <taskId>
-```
-
-### Chat (Workspace only)
-
-```bash
-gog chat spaces list
-gog chat send --space <spaceId> --message "Hello team"
-```
-
-### Docs & Slides
-
-```bash
-gog docs create --title "Meeting Notes"
-gog docs export <docId> --format markdown
-gog slides create --title "Q4 Presentation"
-```
-
-## Output Modes
-
-- Default: human-readable text
-- `--json`: structured JSON output for scripting/agents
-- `GOG_HELP=full gog --help`: full expanded command list
-
-## Multiple Accounts
-
-```bash
-gog auth add work@company.com
-gog auth add personal@gmail.com
-gog --account work@company.com gmail search "project update"
-```
-
-## Agent-Friendly Features
-
-- JSON output with `--json` flag on all commands
-- Command allowlist via `GOG_ALLOWED_COMMANDS` for sandboxed/agent runs
-- Non-interactive auth flows (`--manual`, `--remote`, `--access-token`)
-- Auto-refreshing OAuth tokens
-- Structured exit codes
-
-## Troubleshooting & Common Issues
-
-### 1. Token Expiration or Refresh Failure
-If commands return `401 Unauthorized` or token errors:
-```bash
-# Re-authenticate account
-gog auth add <email> --manual
-```
-
-### 2. Headless Server / SSH Authentication
-On machines without a graphical web browser:
-```bash
-# Generate terminal link and paste verification code
-gog auth add <email> --manual
-```
-
-### 3. Read-Only Agent Sandboxing
-To ensure agents cannot accidentally send emails or delete files:
-```bash
-export GOG_ALLOWED_COMMANDS="gmail search,gmail get,calendar list,calendar freebusy,drive search,drive list,docs export,sheets read,tasks list"
-```
+## Progressive Disclosure & References
+- **Authentication Guide**: Read [references/auth-guide.md](references/auth-guide.md) for Google Cloud project setup, consent screens, and headless/SSH flows.
+- **Environment Variables**: See [references/env-vars.md](references/env-vars.md) for `GOG_ACCOUNT`, `GOG_ALLOWED_COMMANDS`, and path overrides.
+- **Troubleshooting**: See [references/troubleshooting.md](references/troubleshooting.md) for 401 token refresh loops and rate limits.
+- **Diagnostics Script**: Run [scripts/check_accounts.py](scripts/check_accounts.py) for instant connection and authentication audits.
+- **Templates**: See [templates/daily-briefing.md](templates/daily-briefing.md) and [templates/gog-profile.json](templates/gog-profile.json).
