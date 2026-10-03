@@ -136,3 +136,25 @@ gog --account work@company.com gmail search "project update"
 - Non-interactive auth flows (`--manual`, `--remote`, `--access-token`)
 - Auto-refreshing OAuth tokens
 - Structured exit codes
+
+## Troubleshooting & Common Issues
+
+### 1. Token Expiration or Refresh Failure
+If commands return `401 Unauthorized` or token errors:
+```bash
+# Re-authenticate account
+gog auth add <email> --manual
+```
+
+### 2. Headless Server / SSH Authentication
+On machines without a graphical web browser:
+```bash
+# Generate terminal link and paste verification code
+gog auth add <email> --manual
+```
+
+### 3. Read-Only Agent Sandboxing
+To ensure agents cannot accidentally send emails or delete files:
+```bash
+export GOG_ALLOWED_COMMANDS="gmail search,gmail get,calendar list,calendar freebusy,drive search,drive list,docs export,sheets read,tasks list"
+```

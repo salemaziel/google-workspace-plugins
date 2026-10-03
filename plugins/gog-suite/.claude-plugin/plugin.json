@@ -1,6 +1,6 @@
 {
   "name": "gog-suite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unified multi-account Google Suite CLI (gog) integration across Gmail, Calendar, Drive, Docs, Sheets, Slides, Chat, Contacts, Tasks, Keep, and Admin.",
   "author": {
     "name": "salemaziel",
@@ -9,6 +9,8 @@
   "keywords": [
     "google",
     "workspace",
+    "gog",
+    "suite",
     "claude-code",
     "codex",
     "gog-suite"

@@ -1,11 +1,16 @@
 {
   "name": "gog-suite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unified multi-account Google Suite CLI (gog) integration across Gmail, Calendar, Drive, Docs, Sheets, Slides, Chat, Contacts, Tasks, Keep, and Admin.",
   "skills": "./skills/",
   "interface": {
     "displayName": "Google Suite CLI — Full Suite",
-    "shortDescription": "Unified multi-account Google Suite CLI (gog) integration across Gmail, Calendar, Drive, Docs, Sheets, Slides, Chat, Contacts, Tasks, Keep, and Admin.",
-    "category": "Productivity"
+    "shortDescription": "Master coordinator across all 15 Google Suite services with gog CLI.",
+    "category": "Developer Tools",
+    "defaultPrompt": [
+      "Run my morning Google Suite briefing with $gog-suite:gog-briefing",
+      "Check my gog authentication status with $gog-suite:gog-status",
+      "Manage my configured Google accounts with $gog-suite:gog-accounts"
+    ]
   }
 }
