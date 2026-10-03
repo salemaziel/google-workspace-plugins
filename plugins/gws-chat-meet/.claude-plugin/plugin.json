@@ -1,6 +1,6 @@
 {
   "name": "gws-chat-meet",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Workspace Chat and Meet operations: space messaging, participant logs, conference creation, and team announcements via gws CLI.",
   "author": {
     "name": "salemaziel",

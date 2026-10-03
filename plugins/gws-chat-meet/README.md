@@ -1,6 +1,6 @@
 # Google Workspace — Chat & Meet (`gws-chat-meet`)
 
-Google Workspace Chat and Meet operations: space messaging, participant logs, conference creation, and team announcements via gws CLI.
+Google Workspace Chat and Meet operations: space messaging, participant logs, conference creation, and team announcements via `gws` CLI.
 
 ## Installation
 
@@ -11,13 +11,25 @@ claude plugin install gws-chat-meet --marketplace google-workspace-plugins
 
 ### Codex CLI
 ```bash
-codex plugin install gws-chat-meet --marketplace google-workspace-plugins
+codex plugin install gws-chat-meet@google-workspace-plugins
 ```
 
 ## Included Components
-- **Commands**: Slash commands in `commands/`
-- **Agents**: Specialized subagents in `agents/`
-- **Skills**: Modular domain skills in `skills/`
+
+- **Commands**:
+  - `/list-spaces` — Discover accessible Google Chat spaces and rooms.
+  - `/send-message` — Dispatch messages and alerts to a Chat space.
+  - `/create-meeting` — Provision a new Google Meet space with custom access control.
+  - `/team-announce` — Broadcast announcements across Chat spaces and email lists simultaneously.
+  - `/post-mortem` — Orchestrate incident retrospectives (Doc + Calendar + Chat notification).
+  - `/review-participants` — Audit conference attendance and participant duration logs.
+- **Agents**:
+  - `team-lead` — Autonomous team communications coordinator, meeting facilitator, and incident retrospective leader.
+- **Skills & Recipes**:
+  - `gws-chat`, `gws-chat-send`
+  - `gws-meet`
+  - `gws-workflow-file-announce`
+  - `recipe-create-meet-space`, `recipe-post-mortem-setup`, `recipe-review-meet-participants`, `recipe-send-team-announcement`
 
 ## License
 MIT

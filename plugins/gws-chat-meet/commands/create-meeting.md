@@ -1,8 +1,19 @@
 ---
 name: create-meeting
-description: "Create a Google Meet space and return the conference link"
+description: "Provision a new Google Meet conference space and return the join link"
 ---
 
-Create Meet space:
-1. Execute `gws meet +create`.
-2. Provide join link and dial-in details.
+Create an open or restricted Google Meet video space.
+
+## Usage
+- `/create-meeting`
+- `/create-meeting --access "<OPEN|TRUSTED|RESTRICTED>"`
+
+## Workflow
+1. Parse access policy (defaults to `OPEN`).
+2. Provision space via `gws`:
+   ```bash
+   gws meet spaces create --json '{"config": {"accessType": "${ACCESS:-OPEN}"}}'
+   ```
+3. Extract `meetingUri` and space name.
+4. Output join link (`https://meet.google.com/...`) and access rules.
