@@ -1,11 +1,16 @@
 {
   "name": "gog-gmail",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gmail inbox management, message triage, draft preparation, sending with confirmation, and thread followup tracking using the gog CLI.",
   "skills": "./skills/",
   "interface": {
     "displayName": "Google Suite CLI — Gmail",
-    "shortDescription": "Gmail inbox management, message triage, draft preparation, sending with confirmation, and thread followup tracking using the gog CLI.",
-    "category": "Productivity"
+    "shortDescription": "Gmail inbox management, message triage, draft preparation, and followups with gog CLI.",
+    "category": "Productivity",
+    "defaultPrompt": [
+      "Triage my unread emails with $gog-gmail:email-triage",
+      "Find unanswered email followups with $gog-gmail:followups",
+      "Draft a reply to my latest email with $gog-gmail:email-draft"
+    ]
   }
 }
