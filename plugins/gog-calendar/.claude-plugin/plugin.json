@@ -1,6 +1,6 @@
 {
   "name": "gog-calendar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Calendar scheduling, agenda inspection, free/busy slot queries, and conflict-free meeting creation with the gog CLI.",
   "author": {
     "name": "salemaziel",
@@ -8,7 +8,7 @@
   },
   "keywords": [
     "google",
-    "workspace",
+    "calendar",
     "claude-code",
     "codex",
     "gog-calendar"
