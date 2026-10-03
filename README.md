@@ -2,11 +2,16 @@
 
 [![Claude Code Marketplace](https://img.shields.io/badge/Claude%20Code-Marketplace-blueviolet)](https://github.com/salemaziel/google-workspace-plugins)
 [![Codex Marketplace](https://img.shields.io/badge/OpenAI%20Codex-Marketplace-black)](https://github.com/salemaziel/google-workspace-plugins)
+[![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-brightgreen.svg)](https://github.com/salemaziel/google-workspace-plugins)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A unified plugin marketplace for **Claude Code** and **OpenAI Codex CLI**, packaging the complete suites of **Google Suite CLI (`gog`)** and **Google Workspace CLI (`gws`)** into modular, service-specific plugins.
+A unified, production-grade plugin marketplace for **Claude Code** and **OpenAI Codex CLI**, packaging the complete suites of **Google Suite CLI (`gog`)** and **Google Workspace CLI (`gws`)** into 14 modular, service-specific plugins.
 
-Each plugin includes native **Slash Commands** (`commands/`), specialized **Subagents** (`agents/`), and modular **Agent Skills** (`skills/`) structured according to the open standards for Claude Code and Codex CLI.
+All 14 plugins follow the **Agent Skills Progressive Disclosure Standard (v1.1.0)**:
+- **Lean Root `SKILL.md`**: Compact operational guides (<100 lines) with clear decision flows and metadata.
+- **Deep Reference Docs (`references/`)**: Exhaustive API schemas, full-text query syntax, priority taxonomies, and troubleshooting guides.
+- **Executable Automation Scripts (`scripts/`)**: Deterministic calculations, free-slot algorithms, payload validators, CSV converters, and log parsers.
+- **Boilerplate Templates (`templates/`)**: Reusable incident alerts, daily standups, meeting dossiers, and PRD specifications.
 
 ---
 
@@ -58,33 +63,33 @@ codex plugin install gws-workflows-core@google-workspace-plugins
 
 ---
 
-## Plugin Catalog
+## Plugin Catalog (All 14 Plugins — v1.1.0)
 
 ### 1. `gog` CLI Plugins (Google Suite CLI)
 
-| Plugin | Service | Commands | Agents | Description |
+| Plugin | Service | Commands | Agents | Progressive Disclosure Components |
 |---|---|---|---|---|
-| [`gog-gmail`](plugins/gog-gmail) | Gmail | `/email-triage`, `/email-draft`, `/email-send`, `/followups` | `inbox-manager` | Email triage, composition with safeguards, draft review, and unanswered thread followup tracking. |
-| [`gog-calendar`](plugins/gog-calendar) | Calendar | `/calendar-agenda`, `/calendar-create`, `/calendar-freebusy`, `/calendar-cancel` | `schedule-coordinator` | Agenda inspection, attendee availability query, conflict-free meeting creation, and event cancellation. |
-| [`gog-drive-docs-sheets`](plugins/gog-drive-docs-sheets) | Drive, Docs, Sheets, Slides | `/drive-search`, `/drive-upload`, `/drive-share`, `/docs-export`, `/docs-create`, `/sheets-read`, `/sheets-write`, `/slides-create` | `document-analyst` | Drive searches, uploads, asset sharing, markdown doc exports/creation, spreadsheet reading/writing, and slide decks. |
-| [`gog-tasks`](plugins/gog-tasks) | Google Tasks | `/tasks-list`, `/tasks-add`, `/tasks-done`, `/tasks-review`, `/tasks-delete` | `task-organizer` | Task list synchronization, P0–P3 prioritization, due date tracking, and daily standup review. |
-| [`gog-suite`](plugins/gog-suite) | Complete Suite | `/gog-briefing`, `/gog-status`, `/gog-auth`, `/gog-accounts` | `suite-orchestrator` | Master cross-service briefing, multi-account management, OAuth2 configuration, and full suite diagnostics. |
+| [`gog-gmail`](plugins/gog-gmail) | Gmail | `/email-triage`, `/email-draft`, `/email-send`, `/followups` | `inbox-manager` | `triage_parser.py`, `prepare_draft.py`, `audit_logger.py`, `followup_manager.py`, classification matrix, tone guides, templates |
+| [`gog-calendar`](plugins/gog-calendar) | Calendar | `/calendar-agenda`, `/calendar-create`, `/calendar-freebusy`, `/calendar-cancel` | `schedule-coordinator` | `find_free_slots.py`, RFC 3339 schemas, conflict resolution, agenda/proposal templates |
+| [`gog-drive-docs-sheets`](plugins/gog-drive-docs-sheets) | Drive, Docs, Sheets, Slides | `/drive-search`, `/drive-upload`, `/drive-share`, `/docs-export`, `/docs-create`, `/sheets-read`, `/sheets-write`, `/slides-create` | `document-analyst` | `drive_search_filter.py`, `csv_to_sheets_json.py`, A1-notation reference, presentation guidelines, templates |
+| [`gog-tasks`](plugins/gog-tasks) | Google Tasks | `/tasks-list`, `/tasks-add`, `/tasks-done`, `/tasks-review`, `/tasks-delete` | `task-organizer` | `task_filter.py` (P0–P3 bucketing), safe test plan, daily standup review templates |
+| [`gog-suite`](plugins/gog-suite) | Complete Suite | `/gog-briefing`, `/gog-status`, `/gog-auth`, `/gog-accounts` | `suite-orchestrator` | `check_accounts.py`, OAuth headless guide, `GOG_ALLOWED_COMMANDS` sandbox, briefing templates |
 
 ---
 
 ### 2. `gws` CLI Plugins (Google Workspace CLI)
 
-| Plugin | Service | Commands | Agents | Description |
+| Plugin | Service | Commands | Agents | Progressive Disclosure Components |
 |---|---|---|---|---|
-| [`gws-gmail`](plugins/gws-gmail) | Gmail | `/search`, `/triage`, `/send`, `/reply`, `/forward`, `/vacation`, `/filter` | `customer-support` | Gmail API operations, search, sending with dry-run, draft composition, NDJSON mailbox change streams, and customer support. |
-| [`gws-calendar`](plugins/gws-calendar) | Calendar | `/get-schedule`, `/insert-event`, `/clear-schedule`, `/find-free-time`, `/focus-time`, `/reschedule`, `/batch-invite` | `event-coordinator` | Calendar agenda, Meet conferencing, batch invites, focus blocks, and schedule coordination. |
-| [`gws-drive-docs-sheets`](plugins/gws-drive-docs-sheets) | Drive, Docs, Sheets, Slides | `/search`, `/upload`, `/doc-create`, `/doc-append`, `/sheet-export`, `/sheet-append`, `/sheet-read`, `/slide-create`, `/shared-drive` | `content-creator`, `researcher` | Cloud storage operations, template instantiation, tabular data manipulation, and slide presentations. |
-| [`gws-tasks`](plugins/gws-tasks) | Google Tasks | `/list-tasks`, `/add-task`, `/complete-task`, `/create-tasklist`, `/review-overdue`, `/email-to-task` | `task-administrator` | Task list inspection, overdue audits, and automated email-to-task conversions. |
-| [`gws-chat-meet`](plugins/gws-chat-meet) | Chat & Meet | `/list-spaces`, `/send-message`, `/create-meeting`, `/team-announce`, `/post-mortem`, `/review-participants` | `team-lead` | Space messaging, video room provisioning, incident post-mortems, and team announcements. |
-| [`gws-people`](plugins/gws-people) | Contacts & Directory | `/search-contacts`, `/get-contact`, `/create-contact`, `/list-groups`, `/sync-contacts` | `sales-ops` | Corporate directory search, profile lookups, and contact directory sync to Google Sheets. |
-| [`gws-forms-keep`](plugins/gws-forms-keep) | Forms & Keep | `/create-form`, `/get-form`, `/collect-responses`, `/keep-note`, `/keep-list` | `hr-coordinator` | Feedback forms, survey response aggregation, and team onboarding notes. |
-| [`gws-admin-security`](plugins/gws-admin-security) | Admin, Script & Security | `/audit-reports`, `/sanitize-prompt`, `/sanitize-response`, `/script-push`, `/events-subscribe`, `/create-classroom` | `it-admin` | Admin audit logs, Apps Script deployments, Workspace event subscriptions, and Model Armor safety filters. |
-| [`gws-workflows-core`](plugins/gws-workflows-core) | Workflows & CLI Core | `/doctor`, `/google-workspace`, `/standup`, `/meeting-prep`, `/weekly-digest`, `/recipe`, `/audit`, `/auth-guide` | `executive-assistant`, `project-manager` | Pre-flight diagnostics, security audits, recipe runner, cross-service workflows, and executive orchestration. |
+| [`gws-gmail`](plugins/gws-gmail) | Gmail | `/search`, `/triage`, `/send`, `/reply`, `/forward`, `/vacation`, `/filter` | `customer-support` | `verify_payload.py` (pre-flight payload validator), discovery schemas, support reply templates |
+| [`gws-calendar`](plugins/gws-calendar) | Calendar | `/get-schedule`, `/insert-event`, `/clear-schedule`, `/find-free-time`, `/focus-time`, `/reschedule`, `/batch-invite` | `event-coordinator` | `find_free_slots_gws.py` (freebusy gap calculator), Meet conference config, event summary templates |
+| [`gws-drive-docs-sheets`](plugins/gws-drive-docs-sheets) | Drive, Docs, Sheets, Slides | `/search`, `/upload`, `/doc-create`, `/doc-append`, `/sheet-export`, `/sheet-append`, `/sheet-read`, `/slide-create`, `/shared-drive` | `content-creator`, `researcher` | `drive_folder_tree.py` (ASCII folder visualizer), batchUpdate Docs/Slides schemas, PRD spec templates |
+| [`gws-tasks`](plugins/gws-tasks) | Google Tasks | `/list-tasks`, `/add-task`, `/complete-task`, `/create-tasklist`, `/review-overdue`, `/email-to-task` | `task-administrator` | `tasks_triage.py` (overdue auditor), subtask hierarchy reference, batch task templates |
+| [`gws-chat-meet`](plugins/gws-chat-meet) | Chat & Meet | `/list-spaces`, `/send-message`, `/create-meeting`, `/team-announce`, `/post-mortem`, `/review-participants` | `team-lead` | `chat_card_builder.py` (Cards v2 generator), incident war room templates, standup templates |
+| [`gws-people`](plugins/gws-people) | Contacts & Directory | `/search-contacts`, `/get-contact`, `/create-contact`, `/list-groups`, `/sync-contacts` | `sales-ops` | `contact_vcard_exporter.py` (CSV/vCard exporter), `personFields` guide, CRM sync schema |
+| [`gws-forms-keep`](plugins/gws-forms-keep) | Forms & Keep | `/create-form`, `/get-form`, `/collect-responses`, `/keep-note`, `/keep-list` | `hr-coordinator` | `form_response_analyzer.py` (tally & percentage analyzer), 2-step form creation, checklist templates |
+| [`gws-admin-security`](plugins/gws-admin-security) | Admin, Script & Security | `/audit-reports`, `/sanitize-prompt`, `/sanitize-response`, `/script-push`, `/events-subscribe`, `/create-classroom` | `it-admin` | `audit_log_analyzer.py` (suspicious login & privilege anomaly detector), Model Armor policies |
+| [`gws-workflows-core`](plugins/gws-workflows-core) | Workflows & CLI Core | `/doctor`, `/google-workspace`, `/standup`, `/meeting-prep`, `/weekly-digest`, `/recipe`, `/audit`, `/auth-guide` | `executive-assistant`, `project-manager` | Suite scripts (`gws_doctor.py`, `workspace_audit.py`, `gws_recipe_runner.py`), command references, cross-service templates |
 
 ---
 
@@ -93,10 +98,10 @@ codex plugin install gws-workflows-core@google-workspace-plugins
 ```
 google-workspace-plugins/
 ├── .claude-plugin/
-│   └── marketplace.json          # Claude Code Marketplace Manifest
+│   └── marketplace.json          # Claude Code Marketplace Manifest (v1.1.0)
 ├── .agents/
 │   └── plugins/
-│       └── marketplace.json      # OpenAI Codex Marketplace Manifest
+│       └── marketplace.json      # OpenAI Codex Marketplace Manifest (v1.1.0)
 ├── plugins/
 │   ├── gog-gmail/
 │   ├── gog-calendar/
@@ -116,16 +121,21 @@ google-workspace-plugins/
 └── README.md
 ```
 
-Each plugin follows the standardized structure:
+Each plugin follows the standardized progressive disclosure structure:
 ```
 plugin-name/
 ├── .claude-plugin/
-│   └── plugin.json          # Claude Code plugin manifest
+│   └── plugin.json          # Claude Code plugin manifest (v1.1.0)
 ├── .codex-plugin/
-│   └── plugin.json          # Codex plugin manifest
+│   └── plugin.json          # Codex plugin manifest (v1.1.0)
 ├── commands/                 # Slash commands (.md with YAML frontmatter)
 ├── agents/                   # Autonomous subagents (.md with YAML frontmatter)
-├── skills/                   # Modular agent skills (subdirectories with SKILL.md)
+├── skills/                   # Modular agent skills (subdirectories with lean SKILL.md)
+│   └── skill-name/
+│       ├── SKILL.md          # Lean operational guide (<100 lines)
+│       ├── references/       # In-depth schemas, query syntax, troubleshooting
+│       ├── scripts/          # Deterministic executable CLI tools (chmod +x)
+│       └── templates/        # Reusable schemas, cards, and markdown reports
 └── README.md
 ```
 

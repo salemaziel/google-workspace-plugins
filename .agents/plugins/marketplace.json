@@ -1,176 +1,95 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "google-workspace-plugins",
-  "interface": {
-    "displayName": "Google Workspace & G Suite Plugins"
+  "description": "Native Claude Code & Codex plugin marketplace for Google Workspace and Google Suite CLI (gog & gws)",
+  "owner": {
+    "name": "salemaziel",
+    "email": "mymainemail0501@gmail.com"
   },
   "plugins": [
     {
       "name": "gog-gmail",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gog-gmail"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gog-gmail",
+      "description": "Gmail inbox management, message triage, draft preparation, sending with confirmation, and thread followup tracking using the gog CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gog-calendar",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gog-calendar"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gog-calendar",
+      "description": "Google Calendar scheduling, agenda inspection, free/busy slot queries, and conflict-free meeting creation with the gog CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gog-drive-docs-sheets",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gog-drive-docs-sheets"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gog-drive-docs-sheets",
+      "description": "Google Drive file management, markdown Docs export, Sheets tabular read/write, and Slides creation using the gog CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gog-tasks",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gog-tasks"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gog-tasks",
+      "description": "Google Tasks management, task list synchronization, due date tracking, and task completion with the gog CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gog-suite",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gog-suite"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
+      "source": "./plugins/gog-suite",
+      "description": "Unified multi-account Google Suite CLI (gog) integration across Gmail, Calendar, Drive, Docs, Sheets, Slides, Chat, Contacts, Tasks, Keep, and Admin.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-gmail",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-gmail"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gws-gmail",
+      "description": "Google Workspace Gmail automation: search, threads, draft composition, labels, NDJSON mailbox change streams, and automated triage via gws CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-calendar",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-calendar"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gws-calendar",
+      "description": "Google Workspace Calendar operations: agenda inspection, Meet links, attendee invites, focus blocks, and schedule conflict resolution via gws CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-drive-docs-sheets",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-drive-docs-sheets"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gws-drive-docs-sheets",
+      "description": "Google Workspace Drive, Docs, Sheets, and Slides operations: cloud file management, document creation, spreadsheet ETL, and slide deck generation via gws CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-tasks",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-tasks"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gws-tasks",
+      "description": "Google Workspace Tasks operations: task list management, overdue audits, and automated email-to-task conversions via gws CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-chat-meet",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-chat-meet"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gws-chat-meet",
+      "description": "Google Workspace Chat and Meet operations: space messaging, participant logs, conference creation, and team announcements via gws CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-people",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-people"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gws-people",
+      "description": "Google Workspace People & Contacts operations: directory search, profile lookups, and contact directory synchronization to spreadsheets via gws CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-forms-keep",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-forms-keep"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
+      "source": "./plugins/gws-forms-keep",
+      "description": "Google Workspace Forms and Keep notes operations: survey creation, response collection, and team onboarding workflows via gws CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-admin-security",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-admin-security"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
+      "source": "./plugins/gws-admin-security",
+      "description": "Google Workspace Admin reports, Classroom courses, Apps Script deployment, Workspace events, and Model Armor safety filters via gws CLI.",
+      "version": "1.1.0"
     },
     {
       "name": "gws-workflows-core",
-      "source": {
-        "source": "local",
-        "path": "./plugins/gws-workflows-core"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Developer Tools"
+      "source": "./plugins/gws-workflows-core",
+      "description": "Google Workspace orchestration suite: pre-flight diagnostics, setup guides, recipe runner, cross-service workflows (standup report, meeting prep, weekly digest), and executive management via gws CLI.",
+      "version": "1.1.0"
     }
   ]
 }
