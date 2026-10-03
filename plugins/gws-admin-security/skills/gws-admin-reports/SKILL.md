@@ -1,58 +1,47 @@
 ---
 name: gws-admin-reports
-description: "Google Workspace Admin SDK: Audit logs and usage reports."
+description: "Google Workspace Admin SDK: Audit activity logs, track suspicious logins, and generate security reports via gws CLI."
 metadata:
   version: 0.22.5
-  openclaw:
-    category: "productivity"
-    requires:
-      bins:
-        - gws
-    cliHelp: "gws admin-reports --help"
+  category: "productivity"
+  requires:
+    bins:
+      - gws
 ---
 
-# admin-reports (reports_v1)
+# gws-admin-reports — Admin SDK Audit & Security Reports
 
-> **PREREQUISITE:** Read `../gws-shared/SKILL.md` for auth, global flags, and security rules. If missing, run `gws generate-skills` to create it.
+Query organization-wide audit logs, monitor threat vectors (suspicious logins, role grants, DLP violations), and generate compliance summaries through the `gws` CLI.
 
-```bash
-gws admin-reports <resource> <method> [flags]
-```
+## Quick Workflow
+1. **Query Logs**: Query activities with `applicationName` filters (`login`, `admin`, `drive`, `token`).
+2. **Analyze**: Pipe activity streams into `audit_log_analyzer.py` to identify anomalies.
+3. **Report**: Format findings into executive security compliance summaries.
 
-## API Resources
-
-### activities
-
-  - `list` — Retrieves a list of activities for a specific customer's account and application such as the Admin console application or the Google Drive application. For more information, see the guides for administrator and Google Drive activity reports. For more information about the activity report's parameters, see the activity parameters reference guides.
-  - `watch` — Start receiving notifications for account activities. For more information, see Receiving Push Notifications.
-
-### channels
-
-  - `stop` — Stop watching resources through this channel.
-
-### customerUsageReports
-
-  - `get` — Retrieves a report which is a collection of properties and statistics for a specific customer's account. For more information, see the Customers Usage Report guide. For more information about the customer report's parameters, see the Customers Usage parameters reference guides.
-
-### entityUsageReports
-
-  - `get` — Retrieves a report which is a collection of properties and statistics for entities used by users within the account. For more information, see the Entities Usage Report guide. For more information about the entities report's parameters, see the Entities Usage parameters reference guides.
-
-### userUsageReport
-
-  - `get` — Retrieves a report which is a collection of properties and statistics for a set of users with the account. For more information, see the User Usage Report guide. For more information about the user report's parameters, see the Users Usage parameters reference guides.
-
-## Discovering Commands
-
-Before calling any API method, inspect it:
+## Core Commands
 
 ```bash
-# Browse resources and methods
-gws admin-reports --help
+# Query and analyze recent authentication/login events
+gws admin-reports activities list \
+  --params '{"userKey": "all", "applicationName": "login", "maxResults": 50}' \
+  | ./scripts/audit_log_analyzer.py
 
-# Inspect a method's required params, types, and defaults
-gws schema admin-reports.<resource>.<method>
+# Inspect admin privilege escalations
+gws admin-reports activities list \
+  --params '{"userKey": "all", "applicationName": "admin", "eventName": "ASSIGN_ROLE"}'
+
+# Export audit findings as structured JSON
+gws admin-reports activities list \
+  --params '{"userKey": "all", "applicationName": "drive", "maxResults": 100}' \
+  | ./scripts/audit_log_analyzer.py --json > drive-audit.json
 ```
 
-Use `gws schema` output to build your `--params` and `--json` flags.
+## Security & Best Practices
+- **Super Admin Required**: Calling Admin Reports requires elevated Workspace administrative privileges.
+- **Log Retention**: Events are retained for up to 180 days.
 
+## Progressive Disclosure & References
+- **Audit Log Events**: Read [references/audit-log-events.md](references/audit-log-events.md) for event names across login, admin, drive, and token applications.
+- **Troubleshooting**: See [references/troubleshooting.md](references/troubleshooting.md) for 403 administrator authorization issues and retention rules.
+- **Audit Analyzer Script**: Use [scripts/audit_log_analyzer.py](scripts/audit_log_analyzer.py) to parse and flag anomalous events.
+- **Templates**: See [templates/security-audit-report.md](templates/security-audit-report.md) and [templates/modelarmor-policy.json](templates/modelarmor-policy.json).
