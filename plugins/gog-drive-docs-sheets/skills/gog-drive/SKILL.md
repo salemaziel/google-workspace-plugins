@@ -7,59 +7,36 @@ description: "Manage Google Drive files, search directories, upload assets, down
 
 Automate Google Drive file search, folder management, uploads, downloads, and access permissions using the `gog` CLI.
 
-## Prerequisites
-- `gog` CLI installed and authenticated (`gog auth add you@example.com` or `export GOG_ACCOUNT=...`).
-
-## Search Query Syntax & Filtering
-
-| Query Example | Description |
-|---|---|
-| `name contains 'Q3 Report'` | Matches files containing phrase in filename |
-| `mimeType = 'application/vnd.google-apps.document'` | Matches Google Docs |
-| `mimeType = 'application/vnd.google-apps.spreadsheet'` | Matches Google Sheets |
-| `mimeType = 'application/vnd.google-apps.presentation'` | Matches Google Slides |
-| `mimeType = 'application/pdf'` | Matches PDF documents |
-| `'me' in owners` | Files owned by the authenticated account |
-| `starred = true` | Only starred files |
-| `trashed = false` | Excludes deleted/trashed files |
-| `modifiedTime > '2026-09-01T00:00:00'` | Modified after specified ISO 8601 date |
+## Quick Workflow
+1. **Search/List**: Locate target files using keywords or structured queries.
+2. **Transfer**: Upload local assets or download cloud files by ID.
+3. **Collaborate**: Grant read/write permissions to users or groups.
 
 ## Core Commands
 
-### Search and List Files
 ```bash
-# List files in root or recent
-gog drive list
+# Search files with JSON output
+gog drive search "quarterly report" --json
 
-# Search files by keyword or title
-gog drive search "quarterly report"
+# Filter search output using helper script
+gog drive search "type:pdf" --json | ./scripts/drive_search_filter.py --mime-type pdf --format links
 
-# Structured search with max results
-gog drive search "type:pdf" --max 20 --json
-```
+# Upload local file to a target folder
+gog drive upload ./project-spec.pdf --title "Q4 Spec" --folder <folderId>
 
-### Upload and Download
-```bash
-# Upload a local file
-gog drive upload ./project-spec.pdf
-
-# Upload with specific title and target folder
-gog drive upload ./data.csv --title "Q3 Sales Data" --folder <folderId>
-
-# Download a file by ID
+# Download file by ID
 gog drive download <fileId> --out ./downloaded-spec.pdf
+
+# Share file (roles: reader, commenter, writer)
+gog drive share <fileId> --email user@example.com --role reader
 ```
 
-### Sharing and Permissions
-```bash
-# Share file with a user (role: reader, commenter, writer)
-gog drive share <fileId> --email user@example.com --role writer
+## Safety & Best Practices
+- **JSON Pipes**: Always pass `--json` to `gog drive search` in automated subagent workflows to cleanly parse `id`, `name`, and `webViewLink`.
+- **Least Privilege**: Default to `--role reader` unless the user explicitly requests edit rights (`writer`).
 
-# Share with view-only permission
-gog drive share <fileId> --email client@example.com --role reader
-```
-
-## Best Practices & Safety
-- **Always use `--json`** in automated agent pipelines to inspect `id`, `name`, `mimeType`, and `webViewLink`.
-- Check file existence before upload to avoid duplicate uploads.
-- Never grant `writer` permissions unless explicitly instructed by the user.
+## Progressive Disclosure & References
+- **Query Syntax & MIME Types**: Read [references/query-syntax.md](references/query-syntax.md) for full-text operators, file types, and date comparisons.
+- **Troubleshooting**: See [references/troubleshooting.md](references/troubleshooting.md) for resolution of 404, 403, and invalid parameter errors.
+- **Filtering Script**: Use [scripts/drive_search_filter.py](scripts/drive_search_filter.py) for filtering, tabular formatting, or markdown link generation.
+- **Share Template**: Use [templates/share-notification.md](templates/share-notification.md) to draft share messages for team communication.

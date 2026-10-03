@@ -1,0 +1,4 @@
+[
+  ["Timestamp", "Category", "Item", "Amount", "Status", "Notes"],
+  ["2026-10-03T12:00:00Z", "Infrastructure", "Cloud Hosting", 450.00, "Approved", "Monthly cluster charges"]
+]
