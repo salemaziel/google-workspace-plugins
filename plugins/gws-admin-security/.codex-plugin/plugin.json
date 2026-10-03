@@ -1,11 +1,17 @@
 {
   "name": "gws-admin-security",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Workspace Admin reports, Classroom courses, Apps Script deployment, Workspace events, and Model Armor safety filters via gws CLI.",
   "skills": "./skills/",
   "interface": {
     "displayName": "Google Workspace — Admin & Security",
     "shortDescription": "Google Workspace Admin reports, Classroom courses, Apps Script deployment, Workspace events, and Model Armor safety filters via gws CLI.",
-    "category": "Productivity"
+    "category": "Productivity",
+    "defaultPrompt": [
+      "/audit-reports --app login",
+      "/sanitize-prompt 'Enter user query here' --template projects/P/locations/L/templates/T",
+      "/script-push --script 1xYz... --dir ./src",
+      "/create-classroom 'AI Agent Engineering 101'"
+    ]
   }
 }

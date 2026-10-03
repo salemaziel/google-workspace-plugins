@@ -83,7 +83,7 @@ codex plugin install gws-workflows-core@google-workspace-plugins
 | [`gws-chat-meet`](plugins/gws-chat-meet) | Chat & Meet | `/list-spaces`, `/send-message`, `/create-meeting`, `/team-announce`, `/post-mortem`, `/review-participants` | `team-lead` | Space messaging, video room provisioning, incident post-mortems, and team announcements. |
 | [`gws-people`](plugins/gws-people) | Contacts & Directory | `/search-contacts`, `/get-contact`, `/create-contact`, `/list-groups`, `/sync-contacts` | `sales-ops` | Corporate directory search, profile lookups, and contact directory sync to Google Sheets. |
 | [`gws-forms-keep`](plugins/gws-forms-keep) | Forms & Keep | `/create-form`, `/get-form`, `/collect-responses`, `/keep-note`, `/keep-list` | `hr-coordinator` | Feedback forms, survey response aggregation, and team onboarding notes. |
-| [`gws-admin-security`](plugins/gws-admin-security) | Admin, Script & Security | `/audit-reports`, `/sanitize-prompt` | `it-admin` | Admin audit logs, Apps Script deployments, Workspace event subscriptions, and Model Armor safety filters. |
+| [`gws-admin-security`](plugins/gws-admin-security) | Admin, Script & Security | `/audit-reports`, `/sanitize-prompt`, `/sanitize-response`, `/script-push`, `/events-subscribe`, `/create-classroom` | `it-admin` | Admin audit logs, Apps Script deployments, Workspace event subscriptions, and Model Armor safety filters. |
 | [`gws-workflows-core`](plugins/gws-workflows-core) | Workflows & CLI Core | `/google-workspace`, `/standup`, `/meeting-prep`, `/weekly-digest`, `/doctor` | `executive-assistant`, `project-manager` | Pre-flight diagnostics, security audits, recipe runner, cross-service workflows, and executive orchestration. |
 
 ---
