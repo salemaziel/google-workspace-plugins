@@ -84,7 +84,7 @@ codex plugin install gws-workflows-core@google-workspace-plugins
 | [`gws-people`](plugins/gws-people) | Contacts & Directory | `/search-contacts`, `/get-contact`, `/create-contact`, `/list-groups`, `/sync-contacts` | `sales-ops` | Corporate directory search, profile lookups, and contact directory sync to Google Sheets. |
 | [`gws-forms-keep`](plugins/gws-forms-keep) | Forms & Keep | `/create-form`, `/get-form`, `/collect-responses`, `/keep-note`, `/keep-list` | `hr-coordinator` | Feedback forms, survey response aggregation, and team onboarding notes. |
 | [`gws-admin-security`](plugins/gws-admin-security) | Admin, Script & Security | `/audit-reports`, `/sanitize-prompt`, `/sanitize-response`, `/script-push`, `/events-subscribe`, `/create-classroom` | `it-admin` | Admin audit logs, Apps Script deployments, Workspace event subscriptions, and Model Armor safety filters. |
-| [`gws-workflows-core`](plugins/gws-workflows-core) | Workflows & CLI Core | `/google-workspace`, `/standup`, `/meeting-prep`, `/weekly-digest`, `/doctor` | `executive-assistant`, `project-manager` | Pre-flight diagnostics, security audits, recipe runner, cross-service workflows, and executive orchestration. |
+| [`gws-workflows-core`](plugins/gws-workflows-core) | Workflows & CLI Core | `/doctor`, `/google-workspace`, `/standup`, `/meeting-prep`, `/weekly-digest`, `/recipe`, `/audit`, `/auth-guide` | `executive-assistant`, `project-manager` | Pre-flight diagnostics, security audits, recipe runner, cross-service workflows, and executive orchestration. |
 
 ---
 
