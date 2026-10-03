@@ -1,0 +1,32 @@
+{
+  "names": [
+    {
+      "givenName": "Alex",
+      "familyName": "Taylor"
+    }
+  ],
+  "emailAddresses": [
+    {
+      "value": "alex.taylor@example.com",
+      "type": "work"
+    }
+  ],
+  "phoneNumbers": [
+    {
+      "value": "+1-555-019-2834",
+      "type": "mobile"
+    }
+  ],
+  "organizations": [
+    {
+      "name": "Acme Innovations",
+      "title": "Head of Engineering",
+      "department": "R&D"
+    }
+  ],
+  "biographies": [
+    {
+      "value": "Met at Cloud Summit 2026. Interested in platform evaluation."
+    }
+  ]
+}
