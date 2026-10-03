@@ -1,17 +1,19 @@
 {
   "name": "gws-gmail",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Google Workspace Gmail automation: search, threads, draft composition, labels, NDJSON mailbox change streams, and automated triage via gws CLI.",
-  "skills": "./skills/",
-  "interface": {
-    "displayName": "Google Workspace — Gmail",
-    "shortDescription": "Google Workspace Gmail automation, search, threads, and support triage via gws CLI.",
-    "category": "Productivity",
-    "defaultPrompt": [
-      "Triage my unread support emails with $gws-gmail:triage",
-      "Search Gmail messages with $gws-gmail:search",
-      "Reply to email thread with $gws-gmail:reply",
-      "Create a Gmail filter with $gws-gmail:filter"
-    ]
-  }
+  "author": {
+    "name": "salemaziel",
+    "email": "mymainemail0501@gmail.com"
+  },
+  "keywords": [
+    "google",
+    "workspace",
+    "gmail",
+    "support",
+    "claude-code",
+    "codex",
+    "gws-gmail"
+  ],
+  "license": "MIT"
 }

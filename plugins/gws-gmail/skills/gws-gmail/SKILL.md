@@ -1,61 +1,48 @@
 ---
 name: gws-gmail
-description: "Gmail: Send, read, and manage email."
+description: "Send, read, triage, and manage email using the Google Workspace CLI (gws)."
 metadata:
   version: 0.22.5
-  openclaw:
-    category: "productivity"
-    requires:
-      bins:
-        - gws
-    cliHelp: "gws gmail --help"
+  category: "productivity"
+  requires:
+    bins:
+      - gws
 ---
 
-# gmail (v1)
+# gws-gmail — Gmail CLI Integration
 
-> **PREREQUISITE:** Read `../gws-shared/SKILL.md` for auth, global flags, and security rules. If missing, run `gws generate-skills` to create it.
+Manage Gmail messages, threads, labels, drafts, and automated streaming through the `gws` CLI.
 
-```bash
-gws gmail <resource> <method> [flags]
-```
+## Quick Workflow
+1. **Triage & Search**: Inspect incoming messages using `+triage` or raw queries.
+2. **Read / Extract**: Fetch headers and body text using `+read`.
+3. **Dispatch**: Validate payload with `verify_payload.py` and send via `+send` or `+reply`.
 
-## Helper Commands
-
-| Command | Description |
-|---------|-------------|
-| [`+send`](../gws-gmail-send/SKILL.md) | Send an email |
-| [`+triage`](../gws-gmail-triage/SKILL.md) | Show unread inbox summary (sender, subject, date) |
-| [`+reply`](../gws-gmail-reply/SKILL.md) | Reply to a message (handles threading automatically) |
-| [`+reply-all`](../gws-gmail-reply-all/SKILL.md) | Reply-all to a message (handles threading automatically) |
-| [`+forward`](../gws-gmail-forward/SKILL.md) | Forward a message to new recipients |
-| [`+read`](../gws-gmail-read/SKILL.md) | Read a message and extract its body or headers |
-| [`+watch`](../gws-gmail-watch/SKILL.md) | Watch for new emails and stream them as NDJSON |
-
-## API Resources
-
-### users
-
-  - `getProfile` — Gets the current user's Gmail profile.
-  - `stop` — Stop receiving push notifications for the given user mailbox.
-  - `watch` — Set up or update a push notification watch on the given user mailbox.
-  - `drafts` — Operations on the 'drafts' resource
-  - `history` — Operations on the 'history' resource
-  - `labels` — Operations on the 'labels' resource
-  - `messages` — Operations on the 'messages' resource
-  - `settings` — Operations on the 'settings' resource
-  - `threads` — Operations on the 'threads' resource
-
-## Discovering Commands
-
-Before calling any API method, inspect it:
+## Core Commands
 
 ```bash
-# Browse resources and methods
-gws gmail --help
+# Triage unread messages in inbox
+gws gmail +triage
 
-# Inspect a method's required params, types, and defaults
-gws schema gmail.<resource>.<method>
+# Read specific message
+gws gmail +read --id <messageId>
+
+# Validate payload before sending
+./scripts/verify_payload.py --to "user@example.com" --subject "Status" --body "Everything is running smoothly."
+
+# Send email with attachment
+gws gmail +send --to "user@example.com" --subject "Status" --body "See attached" --attach ./report.pdf
+
+# Reply to existing message in thread
+gws gmail +reply --id <messageId> --body "Thank you for the update!"
 ```
 
-Use `gws schema` output to build your `--params` and `--json` flags.
+## Safety & Best Practices
+- **Dry Run**: Pass `--dry-run` to any send/reply operation to verify message headers without transmission.
+- **Attachment Quotas**: Do not exceed 20MB attachments over Gmail; use Drive links for larger assets.
 
+## Progressive Disclosure & References
+- **Discovery & API Schemas**: Read [references/discovery-schemas.md](references/discovery-schemas.md) for parameter schemas and direct method calls (`gws schema gmail.users.messages.send`).
+- **Troubleshooting**: See [references/troubleshooting.md](references/troubleshooting.md) for OAuth scopes, rate limiting, and attachment size limits.
+- **Payload Validator**: Use [scripts/verify_payload.py](scripts/verify_payload.py) to validate email parameters and attachments prior to sending.
+- **Templates**: See [templates/support-reply.md](templates/support-reply.md) and [templates/forward-brief.md](templates/forward-brief.md).

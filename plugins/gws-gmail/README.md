@@ -14,7 +14,16 @@ claude plugin install gws-gmail --marketplace google-workspace-plugins
 codex plugin install gws-gmail@google-workspace-plugins
 ```
 
-## Included Components
+## Architecture & Components (v1.1.0)
+Follows the Agent Skills progressive disclosure standard:
+
+- **Skills & Progressive Disclosure**:
+  - `gws-gmail` (core API operations)
+    - References: `references/discovery-schemas.md`, `references/troubleshooting.md`
+    - Scripts: `scripts/verify_payload.py` (executable email payload & attachment validator)
+    - Templates: `templates/support-reply.md`, `templates/forward-brief.md`
+  - Helper & Streaming Skills: `gws-gmail-send`, `gws-gmail-read`, `gws-gmail-reply`, `gws-gmail-reply-all`, `gws-gmail-forward`, `gws-gmail-triage`, `gws-gmail-watch`
+  - Recipe Workflows: `recipe-create-gmail-filter`, `recipe-create-vacation-responder`, `recipe-forward-labeled-emails`, `recipe-label-and-archive-emails`, `recipe-save-email-attachments`, `recipe-save-email-to-doc`
 - **Commands**:
   - `/search` — Search Gmail messages by query, sender, or label.
   - `/triage` — Inbox triage and priority classification.
@@ -25,10 +34,6 @@ codex plugin install gws-gmail@google-workspace-plugins
   - `/filter` — Automated Gmail filter and labeling rules.
 - **Agents**:
   - `customer-support` — Autonomous customer support and client communication agent.
-- **Skills & Recipes**:
-  - `gws-gmail` (core API operations)
-  - `gws-gmail-send`, `gws-gmail-read`, `gws-gmail-reply`, `gws-gmail-reply-all`, `gws-gmail-forward`, `gws-gmail-triage`, `gws-gmail-watch`
-  - `recipe-create-gmail-filter`, `recipe-create-vacation-responder`, `recipe-forward-labeled-emails`, `recipe-label-and-archive-emails`, `recipe-save-email-attachments`, `recipe-save-email-to-doc`
 
 ## License
 MIT
