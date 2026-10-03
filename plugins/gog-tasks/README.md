@@ -11,13 +11,20 @@ claude plugin install gog-tasks --marketplace google-workspace-plugins
 
 ### Codex CLI
 ```bash
-codex plugin install gog-tasks --marketplace google-workspace-plugins
+codex plugin install gog-tasks@google-workspace-plugins
 ```
 
 ## Included Components
-- **Commands**: Slash commands in `commands/`
-- **Agents**: Specialized subagents in `agents/`
-- **Skills**: Modular domain skills in `skills/`
+- **Commands**:
+  - `/tasks-list` — List and filter active tasks by due date or list name.
+  - `/tasks-add` — Add a prioritized task with due dates and notes.
+  - `/tasks-done` — Mark tasks complete with title verification.
+  - `/tasks-review` — Daily morning/evening task standup and prioritization.
+  - `/tasks-delete` — Delete cancelled tasks with preview confirmation.
+- **Agents**:
+  - `task-organizer` — Autonomous productivity assistant for P0–P3 prioritization and backlog management.
+- **Skills**:
+  - `gog-tasks` — Complete Eisenhower priority taxonomy, daily review cadences, and email conversion workflows.
 
 ## License
 MIT

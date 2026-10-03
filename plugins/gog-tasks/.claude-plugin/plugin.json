@@ -1,6 +1,6 @@
 {
   "name": "gog-tasks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Tasks management, task list synchronization, due date tracking, and task completion with the gog CLI.",
   "author": {
     "name": "salemaziel",
@@ -8,7 +8,8 @@
   },
   "keywords": [
     "google",
-    "workspace",
+    "tasks",
+    "todo",
     "claude-code",
     "codex",
     "gog-tasks"

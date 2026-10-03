@@ -1,11 +1,16 @@
 {
   "name": "gog-tasks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Tasks management, task list synchronization, due date tracking, and task completion with the gog CLI.",
   "skills": "./skills/",
   "interface": {
     "displayName": "Google Suite CLI — Tasks",
-    "shortDescription": "Google Tasks management, task list synchronization, due date tracking, and task completion with the gog CLI.",
-    "category": "Productivity"
+    "shortDescription": "Google Tasks management, task list synchronization, due date tracking, and task completion with gog CLI.",
+    "category": "Productivity",
+    "defaultPrompt": [
+      "Review my open tasks with $gog-tasks:tasks-list",
+      "Run my daily task review with $gog-tasks:tasks-review",
+      "Add a new priority task with $gog-tasks:tasks-add"
+    ]
   }
 }
