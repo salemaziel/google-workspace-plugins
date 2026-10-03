@@ -1,109 +1,55 @@
 ---
 name: gws-calendar
-description: "Google Calendar: Manage calendars and events."
+description: "Manage calendars, schedule meetings, query attendee free/busy availability, and configure Google Meet calls with gws CLI."
 metadata:
   version: 0.22.5
-  openclaw:
-    category: "productivity"
-    requires:
-      bins:
-        - gws
-    cliHelp: "gws calendar --help"
+  category: "productivity"
+  requires:
+    bins:
+      - gws
 ---
 
-# calendar (v3)
+# gws-calendar — Google Calendar CLI Integration
 
-> **PREREQUISITE:** Read `../gws-shared/SKILL.md` for auth, global flags, and security rules. If missing, run `gws generate-skills` to create it.
+Manage calendars, schedule meetings, inspect agendas, and coordinate attendee availability through the `gws` CLI.
 
-```bash
-gws calendar <resource> <method> [flags]
-```
+## Quick Workflow
+1. **Query Agenda**: List upcoming events across calendars with `+agenda`.
+2. **Find Common Availability**: Query attendee availability via `gws calendar freebusy query` and pipe into `find_free_slots_gws.py`.
+3. **Schedule**: Insert calendar events with optional automated Google Meet video links (`conferenceDataVersion=1`).
 
-## Helper Commands
-
-| Command | Description |
-|---------|-------------|
-| [`+insert`](../gws-calendar-insert/SKILL.md) | create a new event |
-| [`+agenda`](../gws-calendar-agenda/SKILL.md) | Show upcoming events across all calendars |
-
-## API Resources
-
-### acl
-
-  - `delete` — Deletes an access control rule.
-  - `get` — Returns an access control rule.
-  - `insert` — Creates an access control rule.
-  - `list` — Returns the rules in the access control list for the calendar.
-  - `patch` — Updates an access control rule. This method supports patch semantics.
-  - `update` — Updates an access control rule.
-  - `watch` — Watch for changes to ACL resources.
-
-### calendarList
-
-  - `delete` — Removes a calendar from the user's calendar list.
-  - `get` — Returns a calendar from the user's calendar list.
-  - `insert` — Inserts an existing calendar into the user's calendar list.
-  - `list` — Returns the calendars on the user's calendar list.
-  - `patch` — Updates an existing calendar on the user's calendar list. This method supports patch semantics.
-  - `update` — Updates an existing calendar on the user's calendar list.
-  - `watch` — Watch for changes to CalendarList resources.
-
-### calendars
-
-  - `clear` — Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account.
-  - `delete` — Deletes a secondary calendar. Use calendars.clear for clearing all events on primary calendars.
-  - `get` — Returns metadata for a calendar.
-  - `insert` — Creates a secondary calendar.
-The authenticated user for the request is made the data owner of the new calendar.
-
-Note: We recommend to authenticate as the intended data owner of the calendar. You can use domain-wide delegation of authority to allow applications to act on behalf of a specific user. Don't use a service account for authentication. If you use a service account for authentication, the service account is the data owner, which can lead to unexpected behavior.
-  - `patch` — Updates metadata for a calendar. This method supports patch semantics.
-  - `update` — Updates metadata for a calendar.
-
-### channels
-
-  - `stop` — Stop watching resources through this channel
-
-### colors
-
-  - `get` — Returns the color definitions for calendars and events.
-
-### events
-
-  - `delete` — Deletes an event.
-  - `get` — Returns an event based on its Google Calendar ID. To retrieve an event using its iCalendar ID, call the events.list method using the iCalUID parameter.
-  - `import` — Imports an event. This operation is used to add a private copy of an existing event to a calendar. Only events with an eventType of default may be imported.
-Deprecated behavior: If a non-default event is imported, its type will be changed to default and any event-type-specific properties it may have will be dropped.
-  - `insert` — Creates an event.
-  - `instances` — Returns instances of the specified recurring event.
-  - `list` — Returns events on the specified calendar.
-  - `move` — Moves an event to another calendar, i.e. changes an event's organizer. Note that only default events can be moved; birthday, focusTime, fromGmail, outOfOffice and workingLocation events cannot be moved.
-  - `patch` — Updates an event. This method supports patch semantics.
-  - `quickAdd` — Creates an event based on a simple text string.
-  - `update` — Updates an event.
-  - `watch` — Watch for changes to Events resources.
-
-### freebusy
-
-  - `query` — Returns free/busy information for a set of calendars.
-
-### settings
-
-  - `get` — Returns a single user setting.
-  - `list` — Returns all user settings for the authenticated user.
-  - `watch` — Watch for changes to Settings resources.
-
-## Discovering Commands
-
-Before calling any API method, inspect it:
+## Core Commands
 
 ```bash
-# Browse resources and methods
-gws calendar --help
+# Show upcoming agenda across all calendars
+gws calendar +agenda
 
-# Inspect a method's required params, types, and defaults
-gws schema calendar.<resource>.<method>
+# Check free/busy availability across multiple users
+gws calendar freebusy query --json '{
+  "timeMin": "2026-10-06T09:00:00Z",
+  "timeMax": "2026-10-06T18:00:00Z",
+  "items": [{"id": "user1@company.com"}, {"id": "user2@company.com"}]
+}' | ./scripts/find_free_slots_gws.py --duration-minutes 30
+
+# Insert a new event with automatic Google Meet conference
+gws calendar events insert \
+  --params '{"calendarId": "primary", "conferenceDataVersion": 1}' \
+  --json '{
+    "summary": "Sprint Planning",
+    "start": {"dateTime": "2026-10-06T10:00:00-04:00"},
+    "end": {"dateTime": "2026-10-06T11:00:00-04:00"},
+    "attendees": [{"email": "colleague@example.com"}],
+    "conferenceData": {"createRequest": {"requestId": "plan-1", "conferenceSolutionKey": {"type": "hangoutsMeet"}}}
+  }'
 ```
 
-Use `gws schema` output to build your `--params` and `--json` flags.
+## Safety & Best Practices
+- **Conflict Prevention**: Always run free/busy queries before scheduling group meetings.
+- **Explicit Confirmation**: Present proposed event time, attendees, and duration to the user before inserting.
 
+## Progressive Disclosure & References
+- **Free/Busy Calculation**: See [references/freebusy-discovery.md](references/freebusy-discovery.md) for querying attendee schedules.
+- **Google Meet Integration**: See [references/meet-config.md](references/meet-config.md) for generating video conference links.
+- **Troubleshooting**: See [references/troubleshooting.md](references/troubleshooting.md) for RFC 3339 timezone handling and permission errors.
+- **Free Slot Finder**: Use [scripts/find_free_slots_gws.py](scripts/find_free_slots_gws.py) to calculate open gaps between busy events.
+- **Event Template**: See [templates/event-summary.md](templates/event-summary.md) for meeting notifications.

@@ -1,17 +1,19 @@
 {
   "name": "gws-calendar",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Google Workspace Calendar operations: agenda inspection, Meet links, attendee invites, focus blocks, and schedule conflict resolution via gws CLI.",
-  "skills": "./skills/",
-  "interface": {
-    "displayName": "Google Workspace — Calendar",
-    "shortDescription": "Google Workspace Calendar operations, Meet links, invites, and focus blocks with gws CLI.",
-    "category": "Productivity",
-    "defaultPrompt": [
-      "Show my schedule for today with $gws-calendar:get-schedule",
-      "Find free meeting slots with $gws-calendar:find-free-time",
-      "Schedule a meeting with $gws-calendar:insert-event",
-      "Block focus time with $gws-calendar:focus-time"
-    ]
-  }
+  "author": {
+    "name": "salemaziel",
+    "email": "mymainemail0501@gmail.com"
+  },
+  "keywords": [
+    "google",
+    "workspace",
+    "calendar",
+    "meet",
+    "claude-code",
+    "codex",
+    "gws-calendar"
+  ],
+  "license": "MIT"
 }
