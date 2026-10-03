@@ -1,6 +1,6 @@
 {
   "name": "gog-tasks",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Google Tasks management, task list synchronization, due date tracking, and task completion with the gog CLI.",
   "author": {
     "name": "salemaziel",
