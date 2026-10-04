@@ -93,6 +93,18 @@ codex plugin install gws-workflows-core@google-workspace-plugins
 
 ---
 
+## 41 CLI-Agnostic Recipe Workflows (v1.2.0)
+
+All 41 canonical productivity recipes are engineered to be **CLI-agnostic** (running seamlessly with either `gog` or `gws` CLI) and follow the Agent Skills progressive disclosure standard (`SKILL.md` <80 lines, `references/cli-mapping.md`, `scripts/*.py`, `templates/`):
+
+- **Calendar Workflows (8)**: `recipe-batch-invite-to-event`, `recipe-block-focus-time`, `recipe-create-events-from-sheet`, `recipe-find-free-time`, `recipe-plan-weekly-schedule`, `recipe-reschedule-meeting`, `recipe-schedule-recurring-event`, `recipe-share-event-materials` (in `gws-calendar` & `gog-calendar`).
+- **Gmail Workflows (6)**: `recipe-create-gmail-filter`, `recipe-create-vacation-responder`, `recipe-forward-labeled-emails`, `recipe-label-and-archive-emails`, `recipe-save-email-attachments`, `recipe-save-email-to-doc` (in `gws-gmail` & `gog-gmail`).
+- **Drive, Docs, Sheets & Slides Workflows (17)**: `recipe-backup-sheet-as-csv`, `recipe-bulk-download-folder`, `recipe-compare-sheet-tabs`, `recipe-copy-sheet-for-new-month`, `recipe-create-doc-from-template`, `recipe-create-expense-tracker`, `recipe-create-presentation`, `recipe-create-shared-drive`, `recipe-draft-email-from-doc`, `recipe-email-drive-link`, `recipe-find-large-files`, `recipe-generate-report-from-sheet`, `recipe-log-deal-update`, `recipe-organize-drive-folder`, `recipe-share-doc-and-notify`, `recipe-share-folder-with-team`, `recipe-watch-drive-changes` (in `gws-drive-docs-sheets` & `gog-drive-docs-sheets`).
+- **Tasks Workflows (2)**: `recipe-create-task-list`, `recipe-review-overdue-tasks` (in `gws-tasks` & `gog-tasks`).
+- **Cross-Service Workflows (8)**: `recipe-create-meet-space`, `recipe-post-mortem-setup`, `recipe-review-meet-participants`, `recipe-send-team-announcement`, `recipe-collect-form-responses`, `recipe-create-feedback-form`, `recipe-sync-contacts-to-sheet`, `recipe-create-classroom-course` (in corresponding `gws-*` & `gog-suite`).
+
+---
+
 ## Directory Architecture
 
 ```

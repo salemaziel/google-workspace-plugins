@@ -32,6 +32,24 @@ Each skill follows the Agent Skills progressive disclosure standard:
   - `gog-slides` — Slide deck provisioning.
     - References: `references/presentation-guidelines.md`, `references/troubleshooting.md`
     - Templates: `templates/pitch-deck-outline.md`, `templates/executive-briefing.md`
+  - **Agnostic Drive, Docs, Sheets & Slides Recipes** (supports `gog` and `gws`):
+    - `recipe-backup-sheet-as-csv` — Export spreadsheets directly to local CSV files.
+    - `recipe-bulk-download-folder` — Batch download entire Drive folders with format conversion.
+    - `recipe-compare-sheet-tabs` — Automated multi-tab delta computation and schema checks.
+    - `recipe-copy-sheet-for-new-month` — Clone monthly templates with dynamic date heading.
+    - `recipe-create-doc-from-template` — Duplicate standardized project briefs and replace variables.
+    - `recipe-create-expense-tracker` — Scaffold structured finance spreadsheets with typed headers.
+    - `recipe-create-presentation` — Provision widescreen presentation decks and configure ACLs.
+    - `recipe-create-shared-drive` — Provision Team Shared Drives and manage access roles.
+    - `recipe-draft-email-from-doc` — Convert Google Docs text into Gmail messages.
+    - `recipe-email-drive-link` — Share Drive assets and email links to recipients.
+    - `recipe-find-large-files` — Storage quota audit across large files and folders.
+    - `recipe-generate-report-from-sheet` — Synthesize spreadsheet metrics into formatted Google Docs.
+    - `recipe-log-deal-update` — Append sales pipeline progression events to CRM sheets.
+    - `recipe-organize-drive-folder` — Provision directory hierarchies and relocate project files.
+    - `recipe-share-doc-and-notify` — Grant writer access to docs and notify reviewers.
+    - `recipe-share-folder-with-team` — Bulk grant team editor and stakeholder reader access.
+    - `recipe-watch-drive-changes` — Track file revisions and change notification streams.
 - **Commands**:
   - `/drive-search` — Search files and folders with keyword and MIME filters.
   - `/drive-upload` — Upload local files to Google Drive.

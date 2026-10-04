@@ -22,6 +22,15 @@ Follows the Agent Skills progressive disclosure standard:
     - References: `references/auth-guide.md`, `references/env-vars.md`, `references/troubleshooting.md`
     - Scripts: `scripts/check_accounts.py` (executable diagnostics and connectivity auditor)
     - Templates: `templates/daily-briefing.md`, `templates/gog-profile.json`
+  - **Agnostic Cross-Service Recipes** (supports `gog` and `gws`):
+    - `recipe-create-meet-space` — Provision instant Google Meet conferences and dispatch invitations.
+    - `recipe-post-mortem-setup` — Cross-service incident response: Docs writeup + Calendar sync + Chat announcement.
+    - `recipe-review-meet-participants` — Query conference records and log attendee durations.
+    - `recipe-send-team-announcement` — Broadcast alerts simultaneously via Gmail and Google Chat.
+    - `recipe-collect-form-responses` — Audit and extract submitted Google Form survey data.
+    - `recipe-create-feedback-form` — Provision customer feedback surveys and email respondent URLs.
+    - `recipe-sync-contacts-to-sheet` — Export enterprise People directory into structured Sheets.
+    - `recipe-create-classroom-course` — Provision Google Classroom courses and invite students.
 - **Commands**:
   - `/gog-briefing` — Generate an executive daily briefing (Calendar + Gmail + Tasks).
   - `/gog-status` — Check CLI binary version, list accounts, and probe API connectivity.

@@ -28,6 +28,13 @@ codex plugin install gog-gmail@google-workspace-plugins
   - `gog-email-draft` — Progressive disclosure with `references/tone-guide.md`, safe temporary draft builder `scripts/prepare_draft.py`, and boilerplate templates.
   - `gog-email-send` — Progressive disclosure with `references/safety-rules.md`, audit logger `scripts/audit_logger.py`, and verification templates.
   - `gog-followups` — Progressive disclosure with `references/nudge-strategy.md`, local store manager `scripts/followup_manager.py`, and reminder templates.
+  - **Agnostic Gmail Recipes** (supports `gog` and `gws`):
+    - `recipe-create-gmail-filter` — Automated email routing, labeling, and star/archive rules.
+    - `recipe-create-vacation-responder` — OOO auto-replies with date windows and domain scoping.
+    - `recipe-forward-labeled-emails` — Triage queue review and automated dispatch to managers.
+    - `recipe-label-and-archive-emails` — Bulk cleanup rules for automated notifications and newsletters.
+    - `recipe-save-email-attachments` — Ingest inbound message attachments into Google Drive.
+    - `recipe-save-email-to-doc` — Convert critical email threads into structured Google Docs records.
 
 ## License
 MIT

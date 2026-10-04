@@ -22,6 +22,9 @@ Follows the Agent Skills progressive disclosure standard:
     - References: `references/priority-taxonomy.md`, `references/troubleshooting.md`, `references/safe-test-plan.md`
     - Scripts: `scripts/task_filter.py` (executable priority bucketing & daily review engine)
     - Templates: `templates/daily-review.md`, `templates/task-proposal.md`
+  - **Agnostic Tasks Recipes** (supports `gog` and `gws`):
+    - `recipe-create-task-list` — Provision dedicated task lists and batch insert prioritized items.
+    - `recipe-review-overdue-tasks` — Query overdue tasks across lists with automated triage.
 - **Commands**:
   - `/tasks-list` — List and filter active tasks by due date or list name.
   - `/tasks-add` — Add a prioritized task with due dates and notes.
