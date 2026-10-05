@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gws-chat-meet",
+  "description": "Google Workspace Chat and Meet operations: space messaging, participant logs, conference creation, and team announcements via gws CLI."
+}

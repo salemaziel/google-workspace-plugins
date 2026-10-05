@@ -14,7 +14,7 @@ claude plugin install gws-calendar --marketplace google-workspace-plugins
 codex plugin install gws-calendar@google-workspace-plugins
 ```
 
-## Architecture & Components (v1.1.0)
+## Architecture & Components (v1.2.0)
 Follows the Agent Skills progressive disclosure standard:
 
 - **Skills & Progressive Disclosure**:
@@ -32,8 +32,7 @@ Follows the Agent Skills progressive disclosure standard:
   - `/focus-time` — Block dedicated deep work / focus time slots.
   - `/reschedule` — Move an existing event to a new slot with attendee updates.
   - `/batch-invite` — Bulk invite attendees to an existing calendar event.
-- **Agents**:
-  - `event-coordinator` — Autonomous meeting scheduler, focus protector, and conflict resolver.
+- **Agents**: `event-coordinator` moved to [`gws-workflows-core`](../gws-workflows-core), which installs this plugin as a dependency.
 
 ## License
 MIT

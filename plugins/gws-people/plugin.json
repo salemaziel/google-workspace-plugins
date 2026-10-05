@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gws-people",
+  "description": "Google Workspace People & Contacts operations: directory search, profile lookups, and contact directory synchronization to spreadsheets via gws CLI."
+}

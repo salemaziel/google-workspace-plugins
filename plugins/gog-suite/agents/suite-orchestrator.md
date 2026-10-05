@@ -1,9 +1,6 @@
 ---
 name: suite-orchestrator
 description: "Master coordinator across all 15 Google Suite services using gog CLI. Orchestrates cross-service workflows, multi-account routing, and diagnostics."
-tools:
-  - Bash
-  - Read
 ---
 
 # Suite Orchestrator (gog)

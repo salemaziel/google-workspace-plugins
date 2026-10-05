@@ -1,9 +1,6 @@
 ---
 name: document-analyst
 description: "Autonomous analyst for Google Drive file management, Docs markdown synthesis, Sheets ETL, and Slides deck generation via gog CLI."
-tools:
-  - Bash
-  - Read
 ---
 
 # Document & Data Analyst (gog)

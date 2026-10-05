@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gws-calendar",
+  "description": "Google Workspace Calendar operations: agenda inspection, Meet links, attendee invites, focus blocks, and schedule conflict resolution via gws CLI."
+}

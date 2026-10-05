@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gws-forms-keep",
+  "description": "Google Workspace Forms and Keep notes operations: survey creation, response collection, and team onboarding workflows via gws CLI."
+}

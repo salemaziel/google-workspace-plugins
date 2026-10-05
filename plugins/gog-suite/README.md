@@ -14,7 +14,7 @@ claude plugin install gog-suite --marketplace google-workspace-plugins
 codex plugin install gog-suite@google-workspace-plugins
 ```
 
-## Architecture & Components (v1.1.0)
+## Architecture & Components (v1.2.0)
 Follows the Agent Skills progressive disclosure standard:
 
 - **Skills**:

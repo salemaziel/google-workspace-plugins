@@ -1,6 +1,6 @@
 {
   "name": "gws-people",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Google Workspace People & Contacts operations: directory search, profile lookups, and contact directory synchronization to spreadsheets via gws CLI.",
   "author": {
     "name": "salemaziel",
@@ -13,5 +13,10 @@
     "codex",
     "gws-people"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": [
+    "gws-gmail",
+    "gws-calendar",
+    "gws-drive-docs-sheets"
+  ]
 }

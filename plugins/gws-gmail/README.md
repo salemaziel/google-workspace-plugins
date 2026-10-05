@@ -14,7 +14,7 @@ claude plugin install gws-gmail --marketplace google-workspace-plugins
 codex plugin install gws-gmail@google-workspace-plugins
 ```
 
-## Architecture & Components (v1.1.0)
+## Architecture & Components (v1.2.0)
 Follows the Agent Skills progressive disclosure standard:
 
 - **Skills & Progressive Disclosure**:
@@ -32,8 +32,7 @@ Follows the Agent Skills progressive disclosure standard:
   - `/forward` — Forward email conversations preserving attribution.
   - `/vacation` — Configure out-of-office vacation autoreponder.
   - `/filter` — Automated Gmail filter and labeling rules.
-- **Agents**:
-  - `customer-support` — Autonomous customer support and client communication agent.
+- **Agents**: `customer-support` moved to [`gws-workflows-core`](../gws-workflows-core), which installs this plugin as a dependency.
 
 ## License
 MIT

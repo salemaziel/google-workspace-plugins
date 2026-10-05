@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gws-tasks",
+  "description": "Google Workspace Tasks operations: task list management, overdue audits, and automated email-to-task conversions via gws CLI."
+}

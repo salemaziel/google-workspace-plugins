@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gws-workflows-core",
+  "description": "Google Workspace orchestration suite: pre-flight diagnostics, setup guides, recipe runner, cross-service workflows (standup report, meeting prep, weekly digest), and executive management via gws CLI."
+}

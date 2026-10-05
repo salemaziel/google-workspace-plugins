@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gws-gmail",
+  "description": "Google Workspace Gmail automation: search, threads, draft composition, labels, NDJSON mailbox change streams, and automated triage via gws CLI."
+}

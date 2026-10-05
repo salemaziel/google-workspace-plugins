@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gog-drive-docs-sheets",
+  "description": "Google Drive file management, markdown Docs export, Sheets tabular read/write, and Slides creation using the gog CLI."
+}

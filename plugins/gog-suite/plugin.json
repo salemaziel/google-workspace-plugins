@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gog-suite",
+  "description": "Unified multi-account Google Suite CLI (gog) integration across Gmail, Calendar, Drive, Docs, Sheets, Slides, Chat, Contacts, Tasks, Keep, and Admin."
+}

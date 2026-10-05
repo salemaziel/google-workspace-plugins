@@ -14,7 +14,7 @@ claude plugin install gog-drive-docs-sheets --marketplace google-workspace-plugi
 codex plugin install gog-drive-docs-sheets@google-workspace-plugins
 ```
 
-## Architecture & Components (v1.1.0)
+## Architecture & Components (v1.2.0)
 Each skill follows the Agent Skills progressive disclosure standard:
 
 - **Skills**:

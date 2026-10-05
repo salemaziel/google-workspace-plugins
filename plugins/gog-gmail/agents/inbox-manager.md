@@ -1,9 +1,6 @@
 ---
 name: inbox-manager
 description: "Autonomous executive email assistant for Gmail triage, drafting, and followup management using the gog CLI."
-tools:
-  - Bash
-  - Read
 ---
 
 # Gmail Inbox Manager (gog)

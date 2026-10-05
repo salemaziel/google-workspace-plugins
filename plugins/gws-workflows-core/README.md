@@ -14,7 +14,7 @@ claude plugin install gws-workflows-core --marketplace google-workspace-plugins
 codex plugin install gws-workflows-core@google-workspace-plugins
 ```
 
-## Architecture & Components (v1.1.0)
+## Architecture & Components (v1.2.0)
 Follows the Agent Skills progressive disclosure standard:
 
 - **Skills & Progressive Disclosure**:
@@ -37,6 +37,11 @@ Follows the Agent Skills progressive disclosure standard:
 - **Agents**:
   - `executive-assistant` — Autonomous executive scheduler, morning briefer, and dossier preparer.
   - `project-manager` — Cross-functional milestone tracker, backlog sync agent, and recipe executor.
+  - `customer-support` — Autonomous customer support and client communication agent.
+  - `event-coordinator` — Autonomous meeting scheduler, focus protector, and conflict resolver.
+  - `team-lead` — Autonomous team communications coordinator, meeting facilitator, and incident retrospective leader.
+  - `content-creator` — Autonomous document author, presenter, and asset publisher.
+  - `researcher` — Reference curator, document synthesizer, and Drive quota optimizer.
 
 ## License
 MIT

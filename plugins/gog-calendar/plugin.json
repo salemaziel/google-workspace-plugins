@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gog-calendar",
+  "description": "Google Calendar scheduling, agenda inspection, free/busy slot queries, and conflict-free meeting creation with the gog CLI."
+}

@@ -14,7 +14,7 @@ claude plugin install gws-chat-meet --marketplace google-workspace-plugins
 codex plugin install gws-chat-meet@google-workspace-plugins
 ```
 
-## Architecture & Components (v1.1.0)
+## Architecture & Components (v1.2.0)
 Follows the Agent Skills progressive disclosure standard:
 
 - **Skills & Progressive Disclosure**:
@@ -31,8 +31,7 @@ Follows the Agent Skills progressive disclosure standard:
   - `/team-announce` — Broadcast announcements across Chat spaces and email lists simultaneously.
   - `/post-mortem` — Orchestrate incident retrospectives (Doc + Calendar + Chat notification).
   - `/review-participants` — Audit conference attendance and participant duration logs.
-- **Agents**:
-  - `team-lead` — Autonomous team communications coordinator, meeting facilitator, and incident retrospective leader.
+- **Agents**: `team-lead` moved to [`gws-workflows-core`](../gws-workflows-core), which installs this plugin as a dependency.
 
 ## License
 MIT

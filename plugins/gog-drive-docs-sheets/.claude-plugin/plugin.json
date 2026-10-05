@@ -1,6 +1,6 @@
 {
   "name": "gog-drive-docs-sheets",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Google Drive file management, markdown Docs export, Sheets tabular read/write, and Slides creation using the gog CLI.",
   "author": {
     "name": "salemaziel",

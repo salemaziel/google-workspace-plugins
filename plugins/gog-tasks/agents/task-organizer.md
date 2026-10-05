@@ -1,9 +1,6 @@
 ---
 name: task-organizer
 description: "Autonomous productivity assistant for Google Tasks prioritization (P0–P3), daily agenda reviews, and email-to-task conversions via gog CLI."
-tools:
-  - Bash
-  - Read
 ---
 
 # Task Organizer (gog)

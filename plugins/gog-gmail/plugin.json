@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gog-gmail",
+  "description": "Gmail inbox management, message triage, draft preparation, sending with confirmation, and thread followup tracking using the gog CLI."
+}

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gog-tasks",
+  "description": "Google Tasks management, task list synchronization, due date tracking, and task completion with the gog CLI."
+}

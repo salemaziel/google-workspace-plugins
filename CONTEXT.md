@@ -1,18 +1,19 @@
 # Google Workspace & Google Suite Plugin Marketplace — CONTEXT
 
-Unified Claude Code and OpenAI Codex CLI plugin marketplace packaging `gog` and `gws` Google CLI capabilities into modular, service-specific bundles.
+Unified Claude Code, OpenAI Codex CLI and Antigravity CLI plugin marketplace packaging `gog` and `gws` Google CLI capabilities into modular, service-specific bundles.
 
 ## Contract
 - **Role**: Plugin Marketplace & Component Repository
-- **Clients**: Claude Code (`claude plugin marketplace add`), Codex CLI (`codex marketplace add`)
-- **Version**: 1.1.0 (Agent Skills Progressive Disclosure Standard)
+- **Clients**: Claude Code (`claude plugin marketplace add`), Codex CLI (`codex marketplace add`), Antigravity CLI (`agy plugin install ./plugins/<name>`)
+- **Version**: 1.2.0 (Agent Skills Progressive Disclosure Standard)
 - **Components**: 14 Service-focused Plugins (5 `gog` CLI, 9 `gws` CLI)
 - **Manifests**:
   - Claude Code: `.claude-plugin/marketplace.json`
   - OpenAI Codex: `.agents/plugins/marketplace.json`
-  - Per-plugin: `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`
+  - Per-plugin: `.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, root `plugin.json` (Antigravity; only `$schema`, `name`, `description` allowed)
+- **Dependencies**: declared only in `.claude-plugin/plugin.json` (Codex and Antigravity have no equivalent). Agents carry no `tools:` list, because Antigravity refuses to start an agent that names Claude tools (`Bash`, `Read`).
 
-## Architecture Standard (v1.1.0)
+## Architecture Standard (v1.2.0)
 Each plugin implements the Agent Skills progressive disclosure standard:
 - **Lean Root `SKILL.md`**: Compact operational guide (<100 lines) with metadata and execution flow.
 - **`references/`**: Domain knowledge, API discovery schemas, query syntax, error codes, and troubleshooting.

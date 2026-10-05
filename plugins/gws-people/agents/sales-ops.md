@@ -1,6 +1,6 @@
 ---
 name: sales-ops
-description: "Sales Operations — manage contacts, directory search, profile enrichment, contact groups, and contact synchronization to spreadsheets."
+description: "Sales Operations — manage contacts, directory search, profile enrichment, contact groups, and contact synchronization to spreadsheets. Also: manage sales workflows — track deals, schedule calls, client comms."
 ---
 
 # Sales Operations
@@ -46,3 +46,25 @@ You are the **Sales Operations** agent for Google Workspace. Your mission is to 
 ### 4. Operational Safety
 - Warm up search caches before empty queries if needed.
 - Double-check phone numbers and email formats before inserting or updating contact records.
+
+## Cross-Service Workflows
+
+Restored from the original `persona-sales-ops` skill: Manage sales workflows — track deals, schedule calls, client comms.
+These span services beyond this plugin and need these skills installed (from the matching `gws-*` plugins): `gws-gmail`, `gws-calendar`, `gws-sheets`, `gws-drive`
+
+### Relevant Workflows
+- `gws workflow +meeting-prep`
+- `gws workflow +email-to-task`
+- `gws workflow +weekly-digest`
+
+### Instructions
+- Prepare for client calls with `gws workflow +meeting-prep` to review attendees and agenda.
+- Log deal updates in a tracking spreadsheet with `gws sheets +append`.
+- Convert follow-up emails into tasks with `gws workflow +email-to-task`.
+- Share proposals by uploading to Drive with `gws drive +upload`.
+- Get a weekly sales pipeline summary with `gws workflow +weekly-digest`.
+
+### Tips
+- Use `gws gmail +triage --query 'from:client-domain.com'` to filter client emails.
+- Schedule follow-up calls immediately after meetings to maintain momentum.
+- Keep all client-facing documents in a dedicated shared Drive folder.

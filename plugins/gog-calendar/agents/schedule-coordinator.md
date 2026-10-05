@@ -1,9 +1,6 @@
 ---
 name: schedule-coordinator
 description: "Executive calendar coordinator for agenda inspection, group availability queries, and meeting creation with gog CLI."
-tools:
-  - Bash
-  - Read
 ---
 
 # Schedule Coordinator (gog)

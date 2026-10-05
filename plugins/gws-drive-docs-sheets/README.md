@@ -14,7 +14,7 @@ claude plugin install gws-drive-docs-sheets --marketplace google-workspace-plugi
 codex plugin install gws-drive-docs-sheets@google-workspace-plugins
 ```
 
-## Architecture & Components (v1.1.0)
+## Architecture & Components (v1.2.0)
 Follows the Agent Skills progressive disclosure standard:
 
 - **Skills & Progressive Disclosure**:
@@ -38,9 +38,7 @@ Follows the Agent Skills progressive disclosure standard:
   - `/sheet-read` — Read and preview cell ranges.
   - `/slide-create` — Create presentation decks in Google Slides.
   - `/shared-drive` — Provision shared drives and manage member permissions.
-- **Agents**:
-  - `content-creator` — Autonomous document author, presenter, and asset publisher.
-  - `researcher` — Reference curator, document synthesizer, and Drive quota optimizer.
+- **Agents**: `content-creator`, `researcher` moved to [`gws-workflows-core`](../gws-workflows-core), which installs this plugin as a dependency.
 
 ## License
 MIT

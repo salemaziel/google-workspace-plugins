@@ -1,0 +1,5 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "gws-admin-security",
+  "description": "Google Workspace Admin reports, Classroom courses, Apps Script deployment, Workspace events, and Model Armor safety filters via gws CLI."
+}
